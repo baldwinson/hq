@@ -25,7 +25,7 @@ export function Navigation({ currentPath = "/" }: NavigationProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
         {/* Logo - Left */}
         <a
           href="/"
@@ -41,10 +41,10 @@ export function Navigation({ currentPath = "/" }: NavigationProps) {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className={`px-4 py-2 text-sm font-normal transition-colors ${
+                  className={`relative px-4 py-2 text-sm font-normal transition-colors after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-px after:origin-center after:content-[''] after:transition-transform after:duration-300 ${
                     currentPath === item.href
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-foreground after:bg-foreground/50 after:scale-x-100"
+                      : "text-muted-foreground hover:text-foreground after:bg-foreground/30 after:scale-x-0 hover:after:scale-x-100"
                   }`}
                 >
                   {item.label}

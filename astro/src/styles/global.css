@@ -119,6 +119,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--ring) 70%, transparent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--foreground) 22%, transparent);
+    color: var(--foreground);
   }
 }
 
@@ -129,6 +143,9 @@
   .site-padding {
     @apply px-6 sm:px-8 lg:px-12;
   }
+  .site-eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground/60;
+  }
   .site-section {
     @apply border-t border-border/20 py-24 sm:py-32;
   }
@@ -136,6 +153,31 @@
     @apply relative flex min-h-[calc(75vh-4rem)] flex-col items-center justify-center;
   }
   .site-hero-inner {
-    @apply mx-auto w-full max-w-[42rem] text-center;
+    @apply relative mx-auto w-full max-w-[42rem] text-center;
+  }
+
+  .site-link {
+    text-decoration-line: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+    text-decoration-skip-ink: auto;
+  }
+  .site-link:hover {
+    text-decoration-color: color-mix(in oklab, currentColor 65%, transparent);
+  }
+
+  .site-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        1200px 600px at 50% 10%,
+        color-mix(in oklab, var(--foreground) 14%, transparent),
+        transparent 62%
+      );
+    opacity: 0.9;
   }
 }
