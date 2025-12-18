@@ -41,7 +41,7 @@ export function Navigation({ currentPath = "/" }: NavigationProps) {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className={`relative px-4 py-2 text-sm font-normal transition-colors after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-px after:origin-center after:content-[''] after:transition-transform after:duration-300 ${
+                  className={`relative px-4 py-2 text-sm font-normal tracking-[0.02em] transition-colors after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-px after:origin-center after:content-[''] after:transition-transform after:duration-300 ${
                     currentPath === item.href
                       ? "text-foreground after:bg-foreground/50 after:scale-x-100"
                       : "text-muted-foreground hover:text-foreground after:bg-foreground/30 after:scale-x-0 hover:after:scale-x-100"
@@ -76,7 +76,7 @@ export function Navigation({ currentPath = "/" }: NavigationProps) {
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`px-3 py-3 text-base font-normal transition-colors ${
+                    className={`px-3 py-3 text-base font-normal tracking-[0.02em] transition-colors ${
                       currentPath === item.href
                         ? "bg-accent text-accent-foreground"
                         : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"

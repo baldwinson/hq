@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CloudScores from '../components/CloudScores.astro';
 ---
 
 <Layout title="Baldwinson | Ethics">
@@ -97,6 +98,15 @@ import Layout from '../layouts/Layout.astro';
 						Companies cannot apply for favorable treatment. Evaluation criteria are public; influence is not for sale.
 					</p>
 				</div>
+				
+				<div>
+					<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
+						Human Rights, Including Sexual Orientation and Gender Identity
+					</h3>
+					<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+						Violations of internationally recognized human rights—including the targeted suppression, discrimination, or endangerment of people based on sexual orientation or gender identity—are treated as high-severity ethical failures with extended recovery horizons, reflecting their disproportionate harm and historical targeting.
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -130,18 +140,9 @@ import Layout from '../layouts/Layout.astro';
 	<section class="site-section site-padding">
 		<div class="site-container">
 			<p class="mb-8 site-eyebrow">
-				Current evaluations
+				Cloud Provider Evaluations — December 2025
 			</p>
-			<p class="text-sm text-muted-foreground/60 sm:text-base">
-				Evaluations are in development. Initial scores will be published when methodology review is complete.
-			</p>
-			<a 
-				href="/ethics/scores" 
-				class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-			>
-				View evaluation registry
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-			</a>
+			<CloudScores />
 		</div>
 	</section>
 

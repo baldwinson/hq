@@ -1,0 +1,221 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface ScoreRow {
+  provider: string;
+  policyBenefits: number;
+  ergDepth: number;
+  leadership: number;
+  workerDignity: number;
+  externalAdvocacy: number;
+  weightedScore: number;
+}
+
+const csvFilePath = path.join(process.cwd(), 'public/scores/cloud-scores_2025-12.csv');
+const rawCsv = fs.readFileSync(csvFilePath, 'utf-8');
+
+const lines = rawCsv.trim().split('\n').filter(line => line.trim());
+const headers = lines[0];
+const dataLines = lines.slice(1);
+
+const scores: ScoreRow[] = dataLines.map(line => {
+  const cols = line.split(',');
+  return {
+    provider: cols[0],
+    policyBenefits: parseFloat(cols[1]),
+    ergDepth: parseFloat(cols[2]),
+    leadership: parseFloat(cols[3]),
+    workerDignity: parseFloat(cols[4]),
+    externalAdvocacy: parseFloat(cols[5]),
+    weightedScore: parseFloat(cols[6]),
+  };
+}).filter(row => row.provider && !isNaN(row.weightedScore));
+
+// Sort by weighted score descending
+scores.sort((a, b) => b.weightedScore - a.weightedScore);
+
+const categories = [
+  { key: 'policyBenefits', label: 'Policy & Benefits', weight: '10%' },
+  { key: 'ergDepth', label: 'ERG Depth', weight: '10%' },
+  { key: 'leadership', label: 'Leadership & Political Integrity', weight: '35%' },
+  { key: 'workerDignity', label: 'Worker Dignity & Labor', weight: '35%' },
+  { key: 'externalAdvocacy', label: 'External Advocacy', weight: '10%' },
+];
+
+function getScoreColor(score: number): string {
+  if (score >= 80) return 'var(--score-excellent)';
+  if (score >= 70) return 'var(--score-good)';
+  if (score >= 60) return 'var(--score-fair)';
+  if (score >= 50) return 'var(--score-poor)';
+  return 'var(--score-critical)';
+}
+
+function getScoreLabel(score: number): string {
+  if (score >= 80) return 'Excellent';
+  if (score >= 70) return 'Good';
+  if (score >= 60) return 'Fair';
+  if (score >= 50) return 'Poor';
+  return 'Critical';
+}
+---
+
+<style>
+  .cloud-scores {
+    --score-excellent: oklch(0.72 0.14 145);
+    --score-good: oklch(0.75 0.12 85);
+    --score-fair: oklch(0.70 0.10 60);
+    --score-poor: oklch(0.65 0.15 45);
+    --score-critical: oklch(0.60 0.18 25);
+  }
+
+  .score-card {
+    border: 1px solid oklch(1 0 0 / 8%);
+    background: oklch(1 0 0 / 3%);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .score-card:hover {
+    background: oklch(1 0 0 / 5%);
+    border-color: oklch(1 0 0 / 12%);
+  }
+
+  .score-bar-track {
+    background: oklch(1 0 0 / 8%);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .weighted-score {
+    font-family: 'Newsreader', Georgia, serif;
+    font-optical-sizing: auto;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .rank-badge {
+    font-family: 'Newsreader', Georgia, serif;
+    font-optical-sizing: auto;
+  }
+</style>
+
+<div class="cloud-scores space-y-6">
+  <!-- Legend -->
+  <div class="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground/70">
+    <div class="legend-item">
+      <span class="legend-dot" style="background: var(--score-excellent);"></span>
+      <span>Excellent (80+)</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background: var(--score-good);"></span>
+      <span>Good (70–79)</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background: var(--score-fair);"></span>
+      <span>Fair (60–69)</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background: var(--score-poor);"></span>
+      <span>Poor (50–59)</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background: var(--score-critical);"></span>
+      <span>Critical (&lt;50)</span>
+    </div>
+  </div>
+
+  <!-- Provider Cards -->
+  <div class="space-y-4">
+    {scores.map((row, index) => (
+      <div class="score-card rounded-lg p-5 sm:p-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <!-- Provider Info -->
+          <div class="flex items-start gap-4">
+            <div 
+              class="rank-badge flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+              style={`background: ${getScoreColor(row.weightedScore)}; color: oklch(0.15 0.02 260);`}
+            >
+              {index + 1}
+            </div>
+            <div>
+              <h3 class="text-base font-medium text-foreground sm:text-lg">
+                {row.provider}
+              </h3>
+              <p class="mt-0.5 text-xs text-muted-foreground/60">
+                {getScoreLabel(row.weightedScore)} standing
+              </p>
+            </div>
+          </div>
+
+          <!-- Weighted Score -->
+          <div class="flex items-baseline gap-1 sm:text-right">
+            <span 
+              class="weighted-score text-3xl font-medium tabular-nums sm:text-4xl"
+              style={`color: ${getScoreColor(row.weightedScore)};`}
+            >
+              {row.weightedScore.toFixed(1)}
+            </span>
+            <span class="text-sm text-muted-foreground/50">/100</span>
+          </div>
+        </div>
+
+        <!-- Category Breakdown -->
+        <div class="category-grid mt-5 pt-4" style="border-top: 1px solid oklch(1 0 0 / 6%);">
+          {categories.map(cat => {
+            const value = row[cat.key as keyof ScoreRow] as number;
+            return (
+              <div class="space-y-1.5">
+                <div class="flex items-baseline justify-between gap-2">
+                  <span class="text-xs text-muted-foreground/60 leading-tight">
+                    {cat.label}
+                  </span>
+                  <span 
+                    class="text-sm font-medium tabular-nums"
+                    style={`color: ${getScoreColor(value)};`}
+                  >
+                    {value}
+                  </span>
+                </div>
+                <div class="score-bar-track">
+                  <div 
+                    class="score-bar-fill" 
+                    style={`width: ${value}%; background: ${getScoreColor(value)};`}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Methodology Note -->
+  <p class="mt-8 text-xs leading-relaxed text-muted-foreground/50">
+    Scores reflect weighted evaluation across five categories. Leadership & Political Integrity and Worker Dignity & Labor each account for 35% of the total score. Policy & Benefits, ERG Depth & Transparency, and External Advocacy each account for 10%. Evaluations are based on documented evidence through December 2025.
+  </p>
+</div>
