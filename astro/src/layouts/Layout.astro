@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+import { Navigation } from '@/components/Navigation';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Baldwinson", 
+	description = "Baldwinson is not a company. It is a standard." 
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+	</head>
+	<body class="min-h-screen bg-background font-sans antialiased">
+		<Navigation client:load currentPath={currentPath} />
+		<main class="pt-16">
+			<slot />
+		</main>
+		<footer class="border-t border-border/20 px-6 py-12 sm:px-8 lg:px-12">
+			<div class="mx-auto max-w-[42rem]">
+				<p class="text-xs text-muted-foreground/50">
+					© {new Date().getFullYear()} Baldwinson
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	/* ============================================
+	   HERO TYPOGRAPHY - Source Sans 3
+	   ============================================ */
+	
+	.hero-section {
+		font-family: 'Source Sans 3', system-ui, sans-serif;
+	}
+	
+	.hero-primary {
+		font-family: 'Source Sans 3', system-ui, sans-serif;
+		font-weight: 400;
+	}
+	
+	.hero-secondary {
+		font-family: 'Source Sans 3', system-ui, sans-serif;
+		font-weight: 300;
+	}
+	
+	/* ============================================ */
+	
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+	
+	body {
+		margin: 0;
+		min-height: 100vh;
+	}
+</style>
