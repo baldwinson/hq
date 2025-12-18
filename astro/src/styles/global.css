@@ -121,3 +121,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .site-container {
+    @apply mx-auto w-full max-w-[42rem];
+  }
+  .site-padding {
+    @apply px-6 sm:px-8 lg:px-12;
+  }
+  .site-section {
+    @apply border-t border-border/20 py-24 sm:py-32;
+  }
+  .site-hero {
+    @apply relative flex min-h-[calc(75vh-4rem)] flex-col items-center justify-center;
+  }
+  .site-hero-inner {
+    @apply mx-auto w-full max-w-[42rem] text-center;
+  }
+}
