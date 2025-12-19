@@ -11,7 +11,10 @@ const { company } = Astro.params;
 const companyName = company.charAt(0).toUpperCase() + company.slice(1).replace(/-/g, ' ');
 ---
 
-<Layout title={`Baldwinson | Ethics — ${companyName}`}>
+<Layout 
+	title={`${companyName} — Baldwinson Ethical Technologies`}
+	description={`Independent ethical performance evaluation for ${companyName}. Assessment based on documented behavior, time-weighted accountability, and evidence over disclosure.`}
+>
 	<section class="hero-section site-hero site-padding">
 		<div class="site-hero-inner">
 			<p class="mb-4 site-eyebrow">
