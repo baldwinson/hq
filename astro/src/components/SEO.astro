@@ -1,0 +1,129 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	canonicalUrl?: string;
+	ogImage?: string;
+	ogType?: 'website' | 'article';
+	publishedTime?: string;
+	modifiedTime?: string;
+	author?: string;
+	noindex?: boolean;
+}
+
+const {
+	title,
+	description,
+	canonicalUrl,
+	ogImage = '/og-default.png',
+	ogType = 'website',
+	publishedTime,
+	modifiedTime,
+	author,
+	noindex = false,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://baldwinson.com';
+const currentUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Baldwinson",
+	"url": siteUrl,
+	"logo": `${siteUrl}/favicon.svg`,
+	"description": "Building durable systems at the intersection of technology, ethics, and governance.",
+	"sameAs": []
+};
+
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"name": "Baldwinson",
+	"url": siteUrl,
+	"description": "Building durable systems at the intersection of technology, ethics, and governance.",
+	"publisher": {
+		"@type": "Organization",
+		"name": "Baldwinson"
+	}
+};
+
+const breadcrumbItems = Astro.url.pathname
+	.split('/')
+	.filter(Boolean)
+	.map((segment, index, arr) => ({
+		"@type": "ListItem",
+		"position": index + 2,
+		"name": segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
+		"item": `${siteUrl}/${arr.slice(0, index + 1).join('/')}`
+	}));
+
+const breadcrumbSchema = breadcrumbItems.length > 0 ? {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+			"@type": "ListItem",
+			"position": 1,
+			"name": "Home",
+			"item": siteUrl
+		},
+		...breadcrumbItems
+	]
+} : null;
+
+const pageSchema = ogType === 'article' ? {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"headline": title,
+	"description": description,
+	"url": currentUrl,
+	"image": fullOgImage,
+	...(publishedTime && { "datePublished": publishedTime }),
+	...(modifiedTime && { "dateModified": modifiedTime }),
+	...(author && { "author": { "@type": "Person", "name": author } }),
+	"publisher": {
+		"@type": "Organization",
+		"name": "Baldwinson",
+		"logo": {
+			"@type": "ImageObject",
+			"url": `${siteUrl}/favicon.svg`
+		}
+	}
+} : null;
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Canonical URL -->
+<link rel="canonical" href={currentUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:site_name" content="Baldwinson" />
+<meta property="og:locale" content="en_US" />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+{author && <meta property="article:author" content={author} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={currentUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+{breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+{pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
