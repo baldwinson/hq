@@ -1,0 +1,9 @@
+# Baldwinson robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://baldwinson.com/sitemap-index.xml
+
+# Crawl-delay (optional, respected by some crawlers)
+Crawl-delay: 1
