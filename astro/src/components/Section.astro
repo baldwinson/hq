@@ -1,0 +1,14 @@
+---
+interface Props {
+	divider?: boolean;
+}
+
+const { divider = false } = Astro.props;
+---
+
+<section class="site-padding pt-10 pb-8">
+	<div class="site-container">
+		<slot />
+		{divider && <div class="site-divider mt-10"></div>}
+	</div>
+</section>
