@@ -1,43 +1,143 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import EyebrowHeading from '../components/EyebrowHeading.astro';
+import Section from '../components/Section.astro';
+
+const publications = [
+	{
+		title: "The Institutional Memory Problem in Software Organizations",
+		date: "2025-01-15",
+		readTime: "18 min",
+		excerpt: "Why organizations repeatedly make the same architectural mistakes, and what structural changes might interrupt the cycle.",
+		area: "engineering"
+	},
+	{
+		title: "Tariff Structures and the Hidden Cost of Cloud Dependency",
+		date: "2024-12-03",
+		readTime: "24 min",
+		excerpt: "An examination of how trade policy intersects with infrastructure decisions, and why geographic distribution of compute is becoming a regulatory concern.",
+		area: "policy"
+	},
+	{
+		title: "On the Limits of Ethical Certification",
+		date: "2024-11-18",
+		readTime: "14 min",
+		excerpt: "A critique of certification-based ethics frameworks and their tendency to reward disclosure over behavioral change.",
+		area: "ethics"
+	},
+	{
+		title: "System Design Under Adversarial Conditions",
+		date: "2024-10-22",
+		readTime: "21 min",
+		excerpt: "Technical decisions made during periods of organizational stress tend to persist. This paper examines why, and proposes evaluation criteria for high-stakes architectural choices.",
+		area: "engineering"
+	},
+	{
+		title: "The Accountability Gap in Algorithmic Procurement",
+		date: "2024-09-08",
+		readTime: "16 min",
+		excerpt: "Government agencies increasingly rely on algorithmic systems they cannot audit. This analysis traces the structural causes and downstream consequences.",
+		area: "policy"
+	}
+];
+
+const formatDate = (dateStr: string) => {
+	const date = new Date(dateStr);
+	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+};
 ---
 
 <Layout 
 	title="Insights — Baldwinson"
-	description="Technical essays, policy-grade analysis, and position papers on technology governance, institutional design, and ethical decision-making."
+	description="Long-form analysis on technology, institutions, and ethical consequence. Deliberate, infrequent publications written to be read slowly and referenced over time."
 >
-	<section class="hero-section site-hero site-padding">
-		<div class="site-hero-inner">
-			<h1 class="hero-primary mb-6 text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
-				Insights
-			</h1>
-			
-			<p class="hero-secondary mx-auto mb-12 max-w-2xl text-lg font-light leading-relaxed text-muted-foreground">
-				Technical essays. Policy-grade analysis. Position papers.
+	<EyebrowHeading 
+		title="Insights"
+		lead="Long-form analysis on technology, institutions, and ethical consequence."
+	/>
+
+	<Section divider>
+		<p class="mb-6 site-eyebrow">
+			Orientation
+		</p>
+		<div class="space-y-4 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				This section collects long-form analytical work examining technology systems, institutional design, and the consequences of decisions made at scale.
 			</p>
+			<p>
+				Publications here are deliberate and infrequent. They are written to be read slowly and referenced over time.
+			</p>
+		</div>
+	</Section>
 
-			<div class="border-t border-border/40 pt-12">
-				<div class="grid gap-4 text-sm text-muted-foreground">
-					<div class="flex items-center justify-center gap-2">
-						<span class="h-1 w-1 rounded-full bg-foreground/40"></span>
-						Technical deep-dives
-					</div>
-					<div class="flex items-center justify-center gap-2">
-						<span class="h-1 w-1 rounded-full bg-foreground/40"></span>
-						Industry analysis
-					</div>
-					<div class="flex items-center justify-center gap-2">
-						<span class="h-1 w-1 rounded-full bg-foreground/40"></span>
-						Professional perspectives
-					</div>
-				</div>
+	<Section divider>
+		<p class="mb-8 site-eyebrow">
+			Areas of analysis
+		</p>
+		<div class="space-y-8">
+			<div>
+				<h3 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+					Institutional ethics and accountability
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Examination of ethical frameworks, indexes, licenses, and governance systems — including critiques of where they fail in practice.
+				</p>
 			</div>
-
-			<div class="mx-auto mt-16 max-w-xl">
-				<p class="text-sm text-muted-foreground/60">
-					Essays and analysis coming soon.
+			
+			<div>
+				<h3 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+					Policy, regulation, and economic consequence
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Analysis of tariffs, government agencies, and regulatory structures, with attention to downstream effects on businesses and individuals.
+				</p>
+			</div>
+			
+			<div>
+				<h3 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+					Engineering judgment at scale
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Writing on technical decisions, system design, and tradeoffs where correctness, usability, and trust materially affect outcomes.
 				</p>
 			</div>
 		</div>
-	</section>
+		<p class="mt-8 text-xs text-foreground/40">
+			These areas serve as mental models, not filters or categories.
+		</p>
+	</Section>
+
+	<Section divider>
+		<p class="mb-8 site-eyebrow">
+			Publications
+		</p>
+		<div class="space-y-0">
+			{publications.map((pub, index) => (
+				<article class={`group py-6 ${index !== 0 ? 'border-t border-foreground/10' : ''}`}>
+					<a href="#" class="block">
+						<div class="mb-2 flex items-center gap-3 text-xs text-foreground/40">
+							<time datetime={pub.date}>{formatDate(pub.date)}</time>
+							<span class="h-0.5 w-0.5 rounded-full bg-foreground/30"></span>
+							<span>{pub.readTime} read</span>
+						</div>
+						<h3 class="mb-2 text-base font-medium leading-snug text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
+							{pub.title}
+						</h3>
+						<p class="text-sm leading-relaxed text-foreground/60 sm:text-base">
+							{pub.excerpt}
+						</p>
+					</a>
+				</article>
+			))}
+		</div>
+	</Section>
+
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			On frequency
+		</p>
+		<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+			New publications appear when there is something worth saying. There is no schedule, no quota, and no obligation to maintain cadence. Quality and precision take precedence over presence.
+		</p>
+	</Section>
 </Layout>

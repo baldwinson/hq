@@ -1,34 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import EyebrowHeading from '../components/EyebrowHeading.astro';
+import Section from '../components/Section.astro';
 ---
 
 <Layout 
 	title="Apps — Baldwinson"
 	description="Applied software projects developed outside of client or advisory work. External projects and applications from Baldwinson."
 >
-	<section class="hero-section site-hero site-padding">
-		<div class="site-hero-inner">
-			<h1 class="hero-primary mb-6 text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
-				Apps
-			</h1>
-			
-			<p class="hero-secondary mx-auto mb-12 max-w-2xl text-lg font-light leading-relaxed text-muted-foreground">
-				External projects and applications.
-			</p>
+	<EyebrowHeading 
+		title="Apps"
+		lead="Applied software projects developed outside of client or advisory work."
+	/>
 
-			<div class="border-t border-border/40 pt-12">
-				<p class="mb-8 site-eyebrow">
-					Projects
-				</p>
-				
-				<div class="grid gap-4">
-					<div class="rounded-lg border border-border/40 bg-card/50 p-6 text-left transition-colors hover:bg-card">
-						<p class="text-sm text-muted-foreground/60">
-							App listings coming soon.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			Projects
+		</p>
+		
+		<p class="text-sm text-foreground/60 sm:text-base">
+			App listings coming soon.
+		</p>
+	</Section>
 </Layout>

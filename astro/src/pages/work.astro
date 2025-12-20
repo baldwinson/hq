@@ -1,88 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import EyebrowHeading from '../components/EyebrowHeading.astro';
+import Section from '../components/Section.astro';
 ---
 
 <Layout 
 	title="Work — Baldwinson"
 	description="Software systems, organizational design, and operational scale. Hands-on system design, executive-level technical leadership, and long-term decision frameworks."
 >
-	<section class="hero-section site-hero site-padding">
-		<div class="site-hero-inner">
-			<h1 class="hero-primary text-[1.75rem] leading-[1.2] tracking-[-0.01em] text-foreground sm:text-[2.125rem] sm:leading-[1.15] lg:text-[2.75rem] lg:leading-[1.15]">
-				Work spanning software systems, organizational design, and operational scale.
-			</h1>
-			
-			<p class="hero-secondary mt-[1em] text-[1rem] leading-[1.5] text-foreground/70 sm:text-[1.125rem] lg:text-[1.25rem]">
-				Engagements span hands-on system design and implementation, executive-level technical leadership, and long-term decision frameworks for organizations operating under real-world constraints.
-			</p>
-		</div>
-	</section>
+	<EyebrowHeading 
+		title="Work"
+		lead="Engagements spanning software systems, organizational design, and operational scale."
+	/>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<div class="space-y-16">
-				<div>
-					<h2 class="mb-4 text-base font-medium text-foreground sm:text-lg">
-						Engineering
-					</h2>
-					<p class="mb-4 text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						Architecture, design, and implementation of production systems across distributed services, data infrastructure, and product engineering.
-					</p>
-					<p class="text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						Work emphasizes correctness, maintainability, and long-term operational clarity over short-term velocity, particularly in environments where failure carries material cost.
-					</p>
-				</div>
-				
-				<div>
-					<h2 class="mb-4 text-base font-medium text-foreground sm:text-lg">
-						Systems & Scale
-					</h2>
-					<p class="mb-4 text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						Design and operation of high-throughput, mission-critical systems with stringent requirements around reliability, performance, and observability.
-					</p>
-					<p class="text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						Experience includes systems operating at institutional scale, where decisions around infrastructure, redundancy, and failure modes materially affect business continuity.
-					</p>
-				</div>
-				
-				<div>
-					<h2 class="mb-4 text-base font-medium text-foreground sm:text-lg">
-						Organizational Design
-					</h2>
-					<p class="mb-4 text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						Engineering team structure, leadership models, and decision frameworks aligned with both technical reality and business objectives.
-					</p>
-					<p class="text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						This includes defining ownership boundaries, escalation paths, and cultural norms that support sustainable delivery as organizations grow beyond early-stage dynamics.
-					</p>
-				</div>
-				
-				<div>
-					<h2 class="mb-4 text-base font-medium text-foreground sm:text-lg">
-						Advisory
-					</h2>
-					<p class="mb-4 text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						Strategic guidance on technical direction, vendor and platform evaluation, build-versus-buy decisions, and technical due diligence.
-					</p>
-					<p class="text-sm leading-relaxed text-muted-foreground/70 sm:text-base">
-						Advisory work is grounded in implementation experience and focuses on reducing long-term risk, not simply optimizing for near-term outcomes.
-					</p>
-				</div>
+	<Section divider>
+		<div class="space-y-10">
+			<div>
+				<h2 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+					Engineering
+				</h2>
+				<p class="mb-3 text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Architecture, design, and implementation of production systems across distributed services, data infrastructure, and product engineering.
+				</p>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Work emphasizes correctness, maintainability, and long-term operational clarity over short-term velocity, particularly in environments where failure carries material cost.
+				</p>
+			</div>
+			
+			<div>
+				<h2 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+					Systems & Scale
+				</h2>
+				<p class="mb-3 text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Design and operation of high-throughput, mission-critical systems with stringent requirements around reliability, performance, and observability.
+				</p>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Experience includes systems operating at institutional scale, where decisions around infrastructure, redundancy, and failure modes materially affect business continuity.
+				</p>
+			</div>
+			
+			<div>
+				<h2 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+					Organizational Design
+				</h2>
+				<p class="mb-3 text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Engineering team structure, leadership models, and decision frameworks aligned with both technical reality and business objectives.
+				</p>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					This includes defining ownership boundaries, escalation paths, and cultural norms that support sustainable delivery as organizations grow beyond early-stage dynamics.
+				</p>
+			</div>
+			
+			<div>
+				<h2 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+					Advisory
+				</h2>
+				<p class="mb-3 text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Strategic guidance on technical direction, vendor and platform evaluation, build-versus-buy decisions, and technical due diligence.
+				</p>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Advisory work is grounded in implementation experience and focuses on reducing long-term risk, not simply optimizing for near-term outcomes.
+				</p>
 			</div>
 		</div>
-	</section>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				When This Work Is Engaged
-			</p>
-			<p class="mb-4 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				This work is typically engaged at points of architectural transition, organizational growth, or strategic reassessment. Not all situations are a fit.
-			</p>
-			<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-				For organizations exploring alignment or discussion related to this work, correspondence details are available on the <a href="/" class="underline underline-offset-2 hover:text-foreground/80">HQ page</a>.
-			</p>
-		</div>
-	</section>
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			When This Work Is Engaged
+		</p>
+		<p class="mb-3 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			This work is typically engaged at points of architectural transition, organizational growth, or strategic reassessment. Not all situations are a fit.
+		</p>
+		<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+			For organizations exploring alignment or discussion related to this work, correspondence details are available on the <a href="/" class="underline underline-offset-2 hover:text-foreground/80">HQ page</a>.
+		</p>
+	</Section>
 </Layout>

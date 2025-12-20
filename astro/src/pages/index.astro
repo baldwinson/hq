@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
 ---
 
 <Layout 
@@ -18,130 +19,109 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-12 site-eyebrow">
-				Areas of work
-			</p>
+	<Section divider>
+		<p class="mb-8 site-eyebrow">
+			Areas of work
+		</p>
+		
+		<div class="space-y-6">
+			<a href="/work" class="group block">
+				<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
+					Work
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</h3>
+				<p class="text-sm text-foreground/70 sm:text-base">
+					Software systems, organizational structure, and operational scale.
+				</p>
+			</a>
 			
-			<div class="space-y-8">
-				<a href="/work" class="group block">
-					<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
-						Work
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-					</h3>
-					<p class="text-sm text-muted-foreground/70 sm:text-base">
-						Software systems, organizational structure, and operational scale.
-					</p>
-				</a>
-				
-				<a href="/insights" class="group block">
-					<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
-						Insights
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-					</h3>
-					<p class="text-sm text-muted-foreground/70 sm:text-base">
-						Analysis and position papers on technology governance.
-					</p>
-				</a>
-				
-				<a href="/ethics" class="group block">
-					<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
-						Ethics
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-					</h3>
-					<p class="text-sm text-muted-foreground/70 sm:text-base">
-						Nonprofit initiative for engineers and technology decision-makers.
-					</p>
-				</a>
-				
-				<a href="/apps" class="group block">
-					<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
-						Apps
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-					</h3>
-					<p class="text-sm text-muted-foreground/70 sm:text-base">
-						Applied software projects developed outside of client or advisory work.
-					</p>
-				</a>
-			</div>
+			<a href="/insights" class="group block">
+				<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
+					Insights
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</h3>
+				<p class="text-sm text-foreground/70 sm:text-base">
+					Analysis and position papers on technology governance.
+				</p>
+			</a>
+			
+			<a href="/ethics" class="group block">
+				<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
+					Ethics
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</h3>
+				<p class="text-sm text-foreground/70 sm:text-base">
+					Nonprofit initiative for engineers and technology decision-makers.
+				</p>
+			</a>
+			
+			<a href="/apps" class="group block">
+				<h3 class="mb-2 flex items-center gap-2 text-base font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-lg">
+					Apps
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 transition-all group-hover:translate-x-0.5 group-hover:opacity-70"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</h3>
+				<p class="text-sm text-foreground/70 sm:text-base">
+					Applied software projects developed outside of client or advisory work.
+				</p>
+			</a>
 		</div>
-	</section>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-12 site-eyebrow">
-				Selected focus areas
-			</p>
-			<ul class="space-y-4 text-sm text-foreground/70 sm:text-base">
-				<li>Large-scale software systems</li>
-				<li>Organizational design under constraint</li>
-				<li>Technology governance and ethics</li>
-				<li>Long-term system durability</li>
-			</ul>
-		</div>
-	</section>
+	<Section divider>
+		<p class="mb-6 site-eyebrow">
+			Selected focus areas
+		</p>
+		<ul class="space-y-3 text-sm text-foreground/70 sm:text-base">
+			<li>Large-scale software systems</li>
+			<li>Organizational design under constraint</li>
+			<li>Technology governance and ethics</li>
+			<li>Long-term system durability</li>
+		</ul>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-12 site-eyebrow">
-				Recent writing
-			</p>
-			<div class="space-y-6">
-				<a href="/insights" class="group block">
-					<h3 class="mb-1 text-sm font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-base">
-						Coming soon
-					</h3>
-					<p class="text-sm text-muted-foreground/60">
-						Essays and analysis on technology governance.
-					</p>
-				</a>
-			</div>
+	<Section divider>
+		<p class="mb-6 site-eyebrow">
+			Recent writing
+		</p>
+		<div class="space-y-4">
+			<a href="/insights" class="group block">
+				<h3 class="mb-1 text-sm font-medium text-foreground transition-colors group-hover:text-foreground/80 sm:text-base">
+					Coming soon
+				</h3>
+				<p class="text-sm text-foreground/50">
+					Essays and analysis on technology governance.
+				</p>
+			</a>
 		</div>
-	</section>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Current focus
-			</p>
-			<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-				Current focus includes work on long-lived software systems, organizational durability, and ethical constraints in technology decision-making.
-			</p>
-		</div>
-	</section>
+	<Section divider>
+		<p class="mb-6 site-eyebrow">
+			Current focus
+		</p>
+		<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+			Current focus includes work on long-lived software systems, organizational durability, and ethical constraints in technology decision-making.
+		</p>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Contact
-			</p>
-			<p class="text-sm text-foreground/70 sm:text-base">
-				For inquiries related to advisory, collaboration, or institutional work.
-			</p>
-		</div>
-	</section>
-
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Correspondence
-			</p>
-			<p class="mb-4 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				Baldwinson operates as a principal-led practice.
-				Inquiries related to the work, initiatives, or ethical frameworks documented here may be directed to:
-			</p>
-			<p id="contact-email" class="mb-4 text-sm text-foreground sm:text-base">
-			</p>
-			<script>
-				const u = "curtis";
-				const d = "baldwinson.com";
-				document.getElementById("contact-email").innerHTML = 
-					`<a href="mailto:${u}@${d}" class="underline underline-offset-2 hover:text-foreground/80">${u}@${d}</a>`;
-			</script>
-			<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-				Not all inquiries require response. Those aligned with the scope and purpose of this work will be read with care.
-			</p>
-		</div>
-	</section>
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			Correspondence
+		</p>
+		<p class="mb-3 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			Baldwinson operates as a principal-led practice.
+			Inquiries related to the work, initiatives, or ethical frameworks documented here may be directed to:
+		</p>
+		<p id="contact-email" class="mb-3 text-sm text-foreground sm:text-base">
+		</p>
+		<script>
+			const u = "curtis";
+			const d = "baldwinson.com";
+			document.getElementById("contact-email").innerHTML = 
+				`<a href="mailto:${u}@${d}" class="underline underline-offset-2 hover:text-foreground/80">${u}@${d}</a>`;
+		</script>
+		<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+			Not all inquiries require response. Those aligned with the scope and purpose of this work will be read with care.
+		</p>
+	</Section>
 </Layout>

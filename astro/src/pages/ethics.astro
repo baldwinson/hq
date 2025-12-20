@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
 ---
 
 <Layout 
@@ -21,183 +22,171 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<h2 class="mb-8 text-xl font-medium tracking-tight text-foreground sm:text-2xl">
-				Why this exists
-			</h2>
-			<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				<p class="mb-8 site-eyebrow">
-					Infrastructure decisions carry ethical consequences
-				</p>
-				<p>
-					Engineers and technical decision-makers are routinely asked to choose infrastructure providers whose platforms shape labor conditions, surveillance capacity, and civil rights—often without access to a clear, trustworthy assessment of those companies’ ethical track records.
-				</p>
-				<p class="mb-8 site-eyebrow">
-					Existing indexes are not built for operational decisions
-				</p>
-				<p>
-					Existing ethical indexes emphasize disclosure, certifications, or self-reported commitments. In practice, this forces teams to choose between accepting opaque risk or conducting months of independent research that few organizations have the time or resources to perform.
-				</p>
-				<p class="mb-8 site-eyebrow">
-					BET provides decision-grade ethical evaluation
-				</p>
-				<p>
-					Baldwinson Ethical Technologies exists to provide a durable, evidence-based evaluation of technology infrastructure providers—one that reflects long-term behavior, not short-term compliance. The goal is not to persuade teams to care about ethics, but to make ethical consequences visible, comparable, and difficult to ignore at the point of decision.
-				</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="site-section site-padding">
-		<div class="site-container">
+	<Section>
+		<h2 class="mb-6 text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+			Why this exists
+		</h2>
+		<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
 			<p class="mb-8 site-eyebrow">
-				First Publication — Q1 2026
+				Infrastructure decisions carry ethical consequences
 			</p>
-			<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				<p>
-					Our inaugural evaluation of major technology companies is currently in development. Join the waitlist to receive the first publication when it is released.
-				</p>
-			</div>
-			<form 
-				class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
-				data-waitlist-form
+			<p>
+				Engineers and technical decision-makers are routinely asked to choose infrastructure providers whose platforms shape labor conditions, surveillance capacity, and civil rights. In many cases, these decisions are made without access to a clear and trustworthy assessment of the companies' ethical track records.
+			</p>
+			<p class="mb-8 site-eyebrow">
+				Existing indexes are not built for operational decisions
+			</p>
+			<p>
+				Existing ethical indexes emphasize disclosure, certifications, or self-reported commitments. In practice, this forces teams to choose between accepting opaque risk or conducting months of independent research that few organizations have the time or resources to perform.
+			</p>
+			<p class="mb-8 site-eyebrow">
+				BET provides decision-grade ethical evaluation
+			</p>
+			<p>
+				Baldwinson Ethical Technologies exists to provide a durable, evidence-based evaluation of technology infrastructure providers—one that reflects long-term behavior, not short-term compliance. The goal is not to persuade teams to care about ethics, but to make ethical consequences visible, comparable, and difficult to ignore at the point of decision.
+			</p>
+		</div>
+	</Section>
+
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			First Publication — Q1 2026
+		</p>
+		<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				Our inaugural evaluation of major technology companies is currently in development. Join the waitlist to receive the first publication when it is released.
+			</p>
+		</div>
+		<form 
+			class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+			data-waitlist-form
+		>
+			<input 
+				type="email" 
+				name="email" 
+				placeholder="Enter your email" 
+				required 
+				class="flex-1 rounded-md border border-foreground/20 bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary sm:max-w-xs"
+			/>
+			<button 
+				type="submit" 
+				class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
 			>
-				<input 
-					type="email" 
-					name="email" 
-					placeholder="Enter your email" 
-					required 
-					class="flex-1 rounded-md border border-foreground/20 bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary sm:max-w-xs"
-				/>
-				<button 
-					type="submit" 
-					class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-				>
-					Join Waitlist
-				</button>
-			</form>
-			<p class="mt-4 text-xs text-foreground/50" data-waitlist-message></p>
-		</div>
-	</section>
+				Join Waitlist
+			</button>
+		</form>
+		<p class="mt-4 text-xs text-foreground/50" data-waitlist-message></p>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Charter
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			Charter
+		</p>
+		<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				Baldwinson Ethical Technologies evaluates technology companies based on long-term ethical performance, not short-term compliance.
 			</p>
-			<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				<p>
-					Baldwinson Ethical Technologies evaluates technology companies based on long-term ethical performance, not short-term compliance.
+			<p>
+				The project exists to provide technology decision-makers with a transparent, non-gameable assessment of institutional behavior over time.
+			</p>
+		</div>
+	</Section>
+
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			Why a new approach is necessary
+		</p>
+		<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				Existing ethical indexes reward disclosure over behavior. A company can publish extensive sustainability reports while maintaining harmful practices indefinitely.
+			</p>
+			<p>
+				Short-term remediation is treated as equivalent to long-term accountability. Organizations that repeatedly cause harm and apologize receive the same treatment as those that prevent harm in the first place.
+			</p>
+			<p>
+				Relative scoring masks absolute harm. Being "better than peers" in a harmful industry is not the same as being ethical.
+			</p>
+			<p>
+				Executive incentive cycles—typically 2–4 years—structurally discourage decisions with ethical payoffs beyond that horizon.
+			</p>
+		</div>
+	</Section>
+
+	<Section>
+		<p class="mb-8 site-eyebrow">
+			Governing principles
+		</p>
+		<div class="space-y-10">
+			<div>
+				<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
+					Time-Weighted Accountability
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Ethical harm compounds; recovery is gradual. A five-year fade period applies to significant violations.
 				</p>
-				<p>
-					The project exists to provide technology decision-makers with a transparent, non-gameable assessment of institutional behavior over time.
+			</div>
+			
+			<div>
+				<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
+					Evidence Over Disclosure
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Policies do not offset outcomes. Evaluation is based on documented behavior, not stated intentions.
+				</p>
+			</div>
+			
+			<div>
+				<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
+					Non-Relative Scoring
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					No "best of a bad category." Scores reflect absolute ethical standing, not relative industry position.
+				</p>
+			</div>
+			
+			<div>
+				<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
+					Independence From Rated Entities
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Companies cannot apply for favorable treatment. Evaluation criteria are public; influence is not for sale.
+				</p>
+			</div>
+			
+			<div>
+				<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
+					Human Rights, Including Sexual Orientation and Gender Identity
+				</h3>
+				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+					Violations of internationally recognized human rights—including the targeted suppression, discrimination, or endangerment of people based on sexual orientation or gender identity—are treated as high-severity ethical failures with extended recovery horizons, reflecting their disproportionate harm and historical targeting.
 				</p>
 			</div>
 		</div>
-	</section>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Why a new approach is necessary
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			Methodology overview
+		</p>
+		<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				Evaluations cover labor practices, governance structure, data handling, environmental impact, and systemic effects on markets and society.
 			</p>
-			<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				<p>
-					Existing ethical indexes reward disclosure over behavior. A company can publish extensive sustainability reports while maintaining harmful practices indefinitely.
-				</p>
-				<p>
-					Short-term remediation is treated as equivalent to long-term accountability. Organizations that repeatedly cause harm and apologize receive the same treatment as those that prevent harm in the first place.
-				</p>
-				<p>
-					Relative scoring masks absolute harm. Being "better than peers" in a harmful industry is not the same as being ethical.
-				</p>
-				<p>
-					Executive incentive cycles—typically 2–4 years—structurally discourage decisions with ethical payoffs beyond that horizon.
-				</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-12 site-eyebrow">
-				Governing principles
+			<p>
+				Time decay applies to both positive and negative events. Recent behavior weighs more heavily, but significant violations remain visible for extended periods.
 			</p>
-			<div class="space-y-10">
-				<div>
-					<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
-						Time-Weighted Accountability
-					</h3>
-					<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-						Ethical harm compounds; recovery is gradual. A five-year fade period applies to significant violations.
-					</p>
-				</div>
-				
-				<div>
-					<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
-						Evidence Over Disclosure
-					</h3>
-					<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-						Policies do not offset outcomes. Evaluation is based on documented behavior, not stated intentions.
-					</p>
-				</div>
-				
-				<div>
-					<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
-						Non-Relative Scoring
-					</h3>
-					<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-						No "best of a bad category." Scores reflect absolute ethical standing, not relative industry position.
-					</p>
-				</div>
-				
-				<div>
-					<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
-						Independence From Rated Entities
-					</h3>
-					<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-						Companies cannot apply for favorable treatment. Evaluation criteria are public; influence is not for sale.
-					</p>
-				</div>
-				
-				<div>
-					<h3 class="mb-3 text-base font-medium text-foreground sm:text-lg">
-						Human Rights, Including Sexual Orientation and Gender Identity
-					</h3>
-					<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
-						Violations of internationally recognized human rights—including the targeted suppression, discrimination, or endangerment of people based on sexual orientation or gender identity—are treated as high-severity ethical failures with extended recovery horizons, reflecting their disproportionate harm and historical targeting.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Methodology overview
+			<p>
+				Evidence standards require documented, verifiable sources. Self-reported data is noted but weighted accordingly.
 			</p>
-			<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				<p>
-					Evaluations cover labor practices, governance structure, data handling, environmental impact, and systemic effects on markets and society.
-				</p>
-				<p>
-					Time decay applies to both positive and negative events. Recent behavior weighs more heavily, but significant violations remain visible for extended periods.
-				</p>
-				<p>
-					Evidence standards require documented, verifiable sources. Self-reported data is noted but weighted accordingly.
-				</p>
-			</div>
-			<a 
-				href="/ethics/methodology" 
-				class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-			>
-				View full methodology
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-			</a>
 		</div>
-	</section>
+		<a 
+			href="/ethics/methodology" 
+			class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+		>
+			View full methodology
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+		</a>
+	</Section>
 
 	<script>
 		const form = document.querySelector('[data-waitlist-form]') as HTMLFormElement;
@@ -231,55 +220,51 @@ import Layout from '../layouts/Layout.astro';
 		});
 	</script>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Registry, scoring, and certification
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			Registry, scoring, and certification
+		</p>
+		<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				<strong class="font-medium text-foreground">Registry</strong> — Self-attestation. Organizations may register their stated commitments. This is informational only.
 			</p>
-			<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				<p>
-					<strong class="font-medium text-foreground">Registry</strong> — Self-attestation. Organizations may register their stated commitments. This is informational only.
-				</p>
-				<p>
-					<strong class="font-medium text-foreground">Scoring</strong> — Independent evaluation. BET assesses organizations based on documented evidence, without their participation or consent.
-				</p>
-				<p>
-					<strong class="font-medium text-foreground">Certification</strong> — Rare, licensed. Reserved for organizations meeting sustained, verified ethical standards over extended periods.
-				</p>
-			</div>
-			<a 
-				href="/ethics/registry" 
-				class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-			>
-				View registry
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-			</a>
+			<p>
+				<strong class="font-medium text-foreground">Scoring</strong> — Independent evaluation. BET assesses organizations based on documented evidence, without their participation or consent.
+			</p>
+			<p>
+				<strong class="font-medium text-foreground">Certification</strong> — Rare, licensed. Reserved for organizations meeting sustained, verified ethical standards over extended periods.
+			</p>
 		</div>
-	</section>
+		<a 
+			href="/ethics/registry" 
+			class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+		>
+			View registry
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+		</a>
+	</Section>
 
-	<section class="site-section site-padding">
-		<div class="site-container">
-			<p class="mb-8 site-eyebrow">
-				Governance and independence
+	<Section>
+		<p class="mb-6 site-eyebrow">
+			Governance and independence
+		</p>
+		<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				Baldwinson Ethical Technologies operates as an independent project with nonprofit registration pending.
 			</p>
-			<div class="space-y-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
-				<p>
-					Baldwinson Ethical Technologies operates as an independent project with nonprofit registration pending.
-				</p>
-				<p>
-					Conflict-of-interest rules prohibit evaluation of organizations with which principals have financial relationships.
-				</p>
-				<p>
-					Funding is structured to prevent influence from rated entities. Methodology and governance documents are public.
-				</p>
-			</div>
-			<a 
-				href="/ethics/governance" 
-				class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-			>
-				View governance structure
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-			</a>
+			<p>
+				Conflict-of-interest rules prohibit evaluation of organizations with which principals have financial relationships.
+			</p>
+			<p>
+				Funding is structured to prevent influence from rated entities. Methodology and governance documents are public.
+			</p>
 		</div>
-	</section>
+		<a 
+			href="/ethics/governance" 
+			class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+		>
+			View governance structure
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+		</a>
+	</Section>
 </Layout>
