@@ -121,4 +121,27 @@ import Layout from '../layouts/Layout.astro';
 			</p>
 		</div>
 	</section>
+
+	<section class="site-section site-padding">
+		<div class="site-container">
+			<p class="mb-8 site-eyebrow">
+				Correspondence
+			</p>
+			<p class="mb-4 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				Baldwinson operates as a principal-led practice.
+				Inquiries related to the work, initiatives, or ethical frameworks documented here may be directed to:
+			</p>
+			<p id="contact-email" class="mb-4 text-sm text-foreground sm:text-base">
+			</p>
+			<script>
+				const u = "curtis";
+				const d = "baldwinson.com";
+				document.getElementById("contact-email").innerHTML = 
+					`<a href="mailto:${u}@${d}" class="underline underline-offset-2 hover:text-foreground/80">${u}@${d}</a>`;
+			</script>
+			<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
+				Not all inquiries require response. Those aligned with the scope and purpose of this work will be read with care.
+			</p>
+		</div>
+	</section>
 </Layout>
