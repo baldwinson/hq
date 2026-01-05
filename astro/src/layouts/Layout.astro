@@ -57,10 +57,15 @@ const currentPath = Astro.url.pathname;
 			<slot />
 		</main>
 		<footer class="border-t border-border/20 site-padding py-12">
-			<div class="site-container">
+			<div class="site-container flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<p class="text-xs text-muted-foreground/50">
 					© {new Date().getFullYear()} Baldwinson
 				</p>
+				<nav class="flex gap-4">
+					<a href="/privacy" class="text-xs text-muted-foreground/50 transition-colors hover:text-muted-foreground">
+						Privacy
+					</a>
+				</nav>
 			</div>
 		</footer>
 	</body>
