@@ -1,0 +1,27 @@
+---
+interface Props {
+  user: string;
+  domain: string;
+  class?: string;
+}
+
+const { user, domain, class: className = '' } = Astro.props;
+
+const userCodes = JSON.stringify([...user].map(c => c.charCodeAt(0)));
+const domainCodes = JSON.stringify([...domain].map(c => c.charCodeAt(0)).reverse());
+const elementId = `email-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<span id={elementId} class={className}></span>
+<script define:vars={{ userCodes, domainCodes, elementId }}>
+  (function() {
+    const p = JSON.parse(userCodes);
+    const s = JSON.parse(domainCodes);
+    const e = document.getElementById(elementId);
+    const u = String.fromCharCode(...p);
+    const d = s.map(c => String.fromCharCode(c)).reverse().join('');
+    e.innerHTML = '<a hr' + 'ef="ma' + 'ilto:' + u + String.fromCharCode(64) + d + 
+      '" class="underline underline-offset-2 hover:text-foreground/80">' + u + 
+      String.fromCharCode(64) + d + '</a>';
+  })();
+</script>

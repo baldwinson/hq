@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
+import ObfuscatedEmail from '../components/ObfuscatedEmail.astro';
 ---
 
 <Layout 
@@ -112,14 +113,9 @@ import Section from '../components/Section.astro';
 			Baldwinson operates as a principal-led practice.
 			Inquiries related to the work, initiatives, or ethical frameworks documented here may be directed to:
 		</p>
-		<p id="contact-email" class="mb-3 text-sm text-foreground sm:text-base">
+		<p class="mb-3 text-sm text-foreground sm:text-base">
+			<ObfuscatedEmail user="curtis" domain="baldwinson.com" />
 		</p>
-		<script>
-			const u = "curtis";
-			const d = "baldwinson.com";
-			document.getElementById("contact-email").innerHTML = 
-				`<a href="mailto:${u}@${d}" class="underline underline-offset-2 hover:text-foreground/80">${u}@${d}</a>`;
-		</script>
 		<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
 			Not all inquiries require response. Those aligned with the scope and purpose of this work will be read with care.
 		</p>
