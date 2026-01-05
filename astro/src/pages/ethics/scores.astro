@@ -1,6 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
+import { 
+	loadLatestScoreReport, 
+	getTier, 
+	getTierColor, 
+	getScoreBarColor, 
+	getCategoryColor 
+} from '../../lib/scores';
+
+const report = loadLatestScoreReport();
+const providers = report?.providers ?? [];
+const reportDate = report?.reportDate ?? 'Unknown';
 ---
 
 <Layout 
@@ -22,13 +33,135 @@ import Section from '../../components/Section.astro';
 		</div>
 	</section>
 
+	<Section divider>
+		<div class="rounded-md border border-yellow-500/30 bg-yellow-500/10 px-4 py-4">
+			<p class="mb-3 text-sm font-medium text-yellow-200">
+				Pre-Publication Notice
+			</p>
+			<div class="space-y-3 text-sm leading-relaxed text-yellow-200/80">
+				<p>
+					This page contains provisional, pre-publication scores generated as part of an ongoing research project. The BET Index methodology, weighting, and supporting evidence are still under development and subject to change.
+				</p>
+				<p>
+					The scores shown here represent preliminary opinion-based assessments, not statements of fact, findings of misconduct, or official judgments about any organization. They should not be relied upon for commercial, legal, or reputational decision-making.
+				</p>
+				<p>
+					Final scores, methodology, sources, and right-of-reply responses will be published in the official BET Index release.
+				</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section divider>
+		<p class="mb-6 site-eyebrow">
+			Scoring methodology
+		</p>
+		<div class="space-y-4 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<p>
+				Scores reflect absolute ethical standing on a 0–100 scale. They are not relative to industry peers. A score of 50 represents baseline ethical behavior; scores below indicate documented concerns that outweigh positive actions.
+			</p>
+			<p>
+				Time-weighted accountability applies: significant violations carry a five-year fade period. Recent behavior weighs more heavily, but past harm remains visible.
+			</p>
+		</div>
+	</Section>
+
+	<Section divider>
+		<p class="mb-6 site-eyebrow">
+			Category weights
+		</p>
+		<div class="grid gap-3 text-sm sm:grid-cols-2 sm:text-base">
+			<div class="flex items-center justify-between border-b border-foreground/10 pb-3 sm:border-b-0 sm:pb-0">
+				<span class="text-foreground/70">Leadership & Political Integrity</span>
+				<span class="font-medium tabular-nums text-foreground">35%</span>
+			</div>
+			<div class="flex items-center justify-between border-b border-foreground/10 pb-3 sm:border-b-0 sm:pb-0">
+				<span class="text-foreground/70">Worker Dignity & Labor Record</span>
+				<span class="font-medium tabular-nums text-foreground">35%</span>
+			</div>
+			<div class="flex items-center justify-between border-b border-foreground/10 pb-3 sm:border-b-0 sm:pb-0">
+				<span class="text-foreground/70">Policy & Benefits</span>
+				<span class="font-medium tabular-nums text-foreground">10%</span>
+			</div>
+			<div class="flex items-center justify-between border-b border-foreground/10 pb-3 sm:border-b-0 sm:pb-0">
+				<span class="text-foreground/70">ERG Depth & Transparency</span>
+				<span class="font-medium tabular-nums text-foreground">10%</span>
+			</div>
+			<div class="flex items-center justify-between">
+				<span class="text-foreground/70">External Advocacy</span>
+				<span class="font-medium tabular-nums text-foreground">10%</span>
+			</div>
+		</div>
+	</Section>
+
+	<Section divider>
+		<p class="mb-8 site-eyebrow">
+			Cloud infrastructure providers
+		</p>
+		<div class="space-y-8">
+			{providers.map((provider) => (
+				<article class="border-b border-foreground/10 pb-8 last:border-b-0 last:pb-0">
+					<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+						<div>
+							<h3 class="text-lg font-medium text-foreground sm:text-xl">
+								{provider.name}
+							</h3>
+							<p class="mt-1 text-xs text-foreground/40">
+								{reportDate} evaluation
+							</p>
+						</div>
+						<div class="flex items-center gap-4">
+							<div class="text-right">
+								<div class="text-2xl font-medium tabular-nums text-foreground">
+									{provider.weightedScore.toFixed(1)}
+								</div>
+								<div class={`text-xs font-medium ${getTierColor(getTier(provider.weightedScore))}`}>
+									{getTier(provider.weightedScore)}
+								</div>
+							</div>
+							<div class="h-12 w-24 overflow-hidden rounded bg-foreground/10">
+								<div 
+									class={`h-full ${getScoreBarColor(provider.weightedScore)}`}
+									style={`width: ${provider.weightedScore}%`}
+								/>
+							</div>
+						</div>
+					</div>
+					
+					<div class="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
+						<div class="flex items-center justify-between">
+							<span class="text-foreground/60">Policy & Benefits</span>
+							<span class={`font-medium tabular-nums ${getCategoryColor(provider.policyBenefits)}`}>{provider.policyBenefits}</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="text-foreground/60">ERG Depth & Transparency</span>
+							<span class={`font-medium tabular-nums ${getCategoryColor(provider.ergDepth)}`}>{provider.ergDepth}</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="text-foreground/60">Leadership & Political Integrity</span>
+							<span class={`font-medium tabular-nums ${getCategoryColor(provider.leadershipIntegrity)}`}>{provider.leadershipIntegrity}</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="text-foreground/60">Worker Dignity & Labor</span>
+							<span class={`font-medium tabular-nums ${getCategoryColor(provider.workerDignity)}`}>{provider.workerDignity}</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="text-foreground/60">External Advocacy</span>
+							<span class={`font-medium tabular-nums ${getCategoryColor(provider.externalAdvocacy)}`}>{provider.externalAdvocacy}</span>
+						</div>
+					</div>
+				</article>
+			))}
+		</div>
+	</Section>
+
 	<Section>
-		<p class="text-sm text-muted-foreground/60 sm:text-base">
-			Evaluations are in development. Initial scores will be published when methodology review is complete.
+		<p class="mb-4 text-xs text-foreground/40">
+			These evaluations are preliminary and subject to revision as methodology review continues. Scores represent current assessment based on available documented evidence.
 		</p>
 		<a 
 			href="/ethics" 
-			class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+			class="site-link inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
 			Back to Ethics
