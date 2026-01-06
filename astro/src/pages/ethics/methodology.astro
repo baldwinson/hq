@@ -5,8 +5,8 @@ import { ArrowLeft } from 'lucide-react';
 ---
 
 <Layout 
-	title="Methodology — Baldwinson Ethical Technologies"
-	description="Full evaluation framework and evidence standards for ethical technology assessment. Time-weighted accountability, evidence over disclosure, and non-relative scoring."
+	title="BET Index Methodology — Baldwinson Ethical Technologies"
+	description="Research-based ranking methodology for technology infrastructure providers. Measures moral inclusion and corporate integrity using present-day policies and an institutional memory model that does not forgive unresolved harm."
 >
 	<section class="hero-section site-hero site-padding">
 		<div class="site-hero-inner">
@@ -14,22 +14,468 @@ import { ArrowLeft } from 'lucide-react';
 				Ethics
 			</p>
 			<h1 class="hero-primary text-[1.75rem] leading-[1.2] tracking-[-0.01em] text-foreground sm:text-[2.125rem] sm:leading-[1.15] lg:text-[2.75rem] lg:leading-[1.15]">
-				Methodology
+				BET Index Methodology
 			</h1>
 			
 			<p class="hero-secondary mt-[1em] text-[1rem] leading-[1.5] text-foreground/70 sm:text-[1.125rem] lg:text-[1.25rem]">
-				Full evaluation framework and evidence standards.
+				A research-based ranking of technology infrastructure providers, designed to measure moral inclusion and corporate integrity.
 			</p>
 		</div>
 	</section>
 
-	<Section>
-		<p class="text-sm text-muted-foreground/60 sm:text-base">
-			Full methodology documentation is in development.
+	<Section divider>
+		<p class="methodology-body text-sm leading-relaxed text-foreground/80 sm:text-base">
+			The <strong>Baldwinson Ethical Technologies (BET) Index</strong> evaluates providers using two principles: <em>(1) present-day policies and conduct</em> and <em>(2) an "institutional memory" model that does not forgive unresolved harm.</em>
 		</p>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Scope</h2>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">What We Rank</h3>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			The BET Index (Infrastructure Edition) evaluates Infrastructure as a Service (IaaS) and major hosting providers, including hyperscalers and independent infrastructure vendors.
+		</p>
+		<p class="methodology-body mb-6 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<strong>Included examples:</strong> AWS, Azure, Google Cloud, IBM Cloud, Oracle Cloud, Hetzner, OVHcloud, DigitalOcean, Vultr, etc.
+		</p>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">What We Do Not Rank (In This Edition)</h3>
+		<p class="methodology-body text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Consumer ecosystem clouds (e.g., iCloud) are not directly comparable to IaaS/PaaS providers. These may be covered in a separate BET Consumer Cloud Index.
+		</p>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Philosophy</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Most "inclusion" indices measure policy checkboxes and forget history on schedule. BET is built on two premises:
+		</p>
+		<ul class="methodology-list mb-4 space-y-3 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			<li class="pl-4 border-l-2 border-foreground/20">
+				<strong>Inclusion without worker dignity is performative.</strong>
+			</li>
+			<li class="pl-4 border-l-2 border-foreground/20">
+				<strong>Institutions must carry moral memory until harm is repaired.</strong><br />
+				<span class="text-foreground/70">Offenses do not "fade" simply because time passes or leadership changes.</span>
+			</li>
+		</ul>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Outputs</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			For each provider, BET publishes:
+		</p>
+		<ul class="methodology-list space-y-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Base Category Scores</strong> (0–100) across five pillars</li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Ethical Ledger</strong> (Event Log) with sources</li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Moral Inertia Adjustments</strong> (growth while unresolved; decay only after remediation)</li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Final Score</strong> (0–100) and rank</li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Historical Moral Record</strong> (Non-Scoring, Permanent) for major historical complicity events</li>
+		</ul>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Pillars and Weights</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			BET uses five pillars. Weights can vary by edition; the recommended default is:
+		</p>
+		<div class="methodology-table mb-6 overflow-x-auto">
+			<table class="w-full text-sm sm:text-base">
+				<thead>
+					<tr class="border-b border-foreground/20">
+						<th class="py-3 pr-4 text-left font-medium text-foreground">Pillar</th>
+						<th class="py-3 text-right font-medium text-foreground">Weight</th>
+					</tr>
+				</thead>
+				<tbody class="text-foreground/80">
+					<tr class="border-b border-foreground/10">
+						<td class="py-3 pr-4">Leadership & Political Integrity</td>
+						<td class="py-3 text-right font-medium">35%</td>
+					</tr>
+					<tr class="border-b border-foreground/10">
+						<td class="py-3 pr-4">Worker Dignity & Labor Record</td>
+						<td class="py-3 text-right font-medium">35%</td>
+					</tr>
+					<tr class="border-b border-foreground/10">
+						<td class="py-3 pr-4">Policy & Benefits</td>
+						<td class="py-3 text-right font-medium">10%</td>
+					</tr>
+					<tr class="border-b border-foreground/10">
+						<td class="py-3 pr-4">ERG Depth & Transparency</td>
+						<td class="py-3 text-right font-medium">10%</td>
+					</tr>
+					<tr>
+						<td class="py-3 pr-4">External Advocacy</td>
+						<td class="py-3 text-right font-medium">10%</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<strong>Rationale:</strong> Leadership and labor reflect what cannot be faked. Policies and ERGs matter, but are secondary.
+		</p>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Pillar Definitions and Scoring</h2>
+		<p class="methodology-body mb-8 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Each pillar is scored 0–100 before Moral Inertia adjustments.
+		</p>
+
+		<div class="methodology-pillar mb-10">
+			<h3 class="methodology-subheading mb-4 text-base font-medium text-foreground sm:text-lg">
+				1. Leadership & Political Integrity <span class="text-foreground/50">(35%)</span>
+			</h3>
+			<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+				Measures alignment between leadership conduct and human rights / inclusion.
+			</p>
+			
+			<h4 class="mb-2 text-sm font-medium text-foreground/90 sm:text-base">Scoring Inputs</h4>
+			<ul class="methodology-list mb-4 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				<li class="pl-4">Executive public statements and policy positions (CEO/Board/Top leadership)</li>
+				<li class="pl-4">Political donations and lobbying patterns (where verifiable)</li>
+				<li class="pl-4">Consistency over time (not one-off press releases)</li>
+				<li class="pl-4">Governance actions (DEI rollbacks, censorship, retaliation against speech)</li>
+			</ul>
+			
+			<h4 class="mb-2 text-sm font-medium text-foreground/90 sm:text-base">Scoring Guide (Illustrative)</h4>
+			<ul class="methodology-list space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				<li class="pl-4"><strong>90–100:</strong> Consistent pro-rights alignment; transparency; no major contradictions</li>
+				<li class="pl-4"><strong>70–89:</strong> Mostly aligned but mixed signals; partial transparency</li>
+				<li class="pl-4"><strong>40–69:</strong> Repeated contradictions; donations/lobbying misaligned with stated values</li>
+				<li class="pl-4"><strong>0–39:</strong> Severe contradictions; support for anti-rights agendas; repeated integrity failures</li>
+			</ul>
+		</div>
+
+		<div class="methodology-pillar mb-10">
+			<h3 class="methodology-subheading mb-4 text-base font-medium text-foreground sm:text-lg">
+				2. Worker Dignity & Labor Record <span class="text-foreground/50">(35%)</span>
+			</h3>
+			<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+				Measures whether the provider respects human dignity across all labor layers (employees, contractors, fulfillment/operations).
+			</p>
+			
+			<h4 class="mb-2 text-sm font-medium text-foreground/90 sm:text-base">Scoring Inputs</h4>
+			<ul class="methodology-list mb-4 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				<li class="pl-4">Safety track record and credible injury reporting</li>
+				<li class="pl-4">Anti-retaliation posture; treatment of organizers/whistleblowers</li>
+				<li class="pl-4">Contractor and supplier labor standards (where relevant)</li>
+				<li class="pl-4">Regulatory actions, lawsuits, settlements (weighted by credibility and severity)</li>
+				<li class="pl-4">Accessibility and accommodation practices (including for trans and disabled workers)</li>
+			</ul>
+			
+			<h4 class="mb-2 text-sm font-medium text-foreground/90 sm:text-base">Scoring Guide</h4>
+			<ul class="methodology-list space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				<li class="pl-4"><strong>90–100:</strong> Strong safety record + worker protections; credible oversight</li>
+				<li class="pl-4"><strong>70–89:</strong> Generally acceptable with limited concerns</li>
+				<li class="pl-4"><strong>40–69:</strong> Recurring labor disputes, safety concerns, retaliation allegations</li>
+				<li class="pl-4"><strong>0–39:</strong> Systemic harm patterns, major controversies, repeated violations</li>
+			</ul>
+		</div>
+
+		<div class="methodology-pillar mb-10">
+			<h3 class="methodology-subheading mb-4 text-base font-medium text-foreground sm:text-lg">
+				3. Policy & Benefits <span class="text-foreground/50">(10%)</span>
+			</h3>
+			<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+				Measures written commitments and benefits that reduce discrimination.
+			</p>
+			
+			<h4 class="mb-2 text-sm font-medium text-foreground/90 sm:text-base">Scoring Inputs</h4>
+			<ul class="methodology-list space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				<li class="pl-4">Non-discrimination (sexual orientation + gender identity)</li>
+				<li class="pl-4">Partner benefits parity</li>
+				<li class="pl-4">Trans-inclusive healthcare and transition support (where applicable)</li>
+				<li class="pl-4">Global consistency (policies apply meaningfully outside HQ country)</li>
+				<li class="pl-4">Supplier standards (non-discrimination clauses)</li>
+			</ul>
+		</div>
+
+		<div class="methodology-pillar mb-10">
+			<h3 class="methodology-subheading mb-4 text-base font-medium text-foreground sm:text-lg">
+				4. ERG Depth & Transparency <span class="text-foreground/50">(10%)</span>
+			</h3>
+			<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+				Measures whether internal inclusion infrastructure exists and has power.
+			</p>
+			
+			<h4 class="mb-2 text-sm font-medium text-foreground/90 sm:text-base">Scoring Inputs</h4>
+			<ul class="methodology-list space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				<li class="pl-4">LGBTQIA+ employee resource groups (existence, scale, leadership sponsorship)</li>
+				<li class="pl-4">Published DEI reporting (frequency and depth)</li>
+				<li class="pl-4">Employee sentiment disclosure (where available)</li>
+				<li class="pl-4">Evidence ERGs influence policy (not just social events)</li>
+			</ul>
+		</div>
+
+		<div class="methodology-pillar">
+			<h3 class="methodology-subheading mb-4 text-base font-medium text-foreground sm:text-lg">
+				5. External Advocacy <span class="text-foreground/50">(10%)</span>
+			</h3>
+			<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+				Measures actions taken when it is inconvenient, not just during Pride.
+			</p>
+			
+			<h4 class="mb-2 text-sm font-medium text-foreground/90 sm:text-base">Scoring Inputs</h4>
+			<ul class="methodology-list space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+				<li class="pl-4">Public advocacy against anti-LGBTQ laws/policies</li>
+				<li class="pl-4">Financial support for rights orgs (transparent, consistent)</li>
+				<li class="pl-4">Industry coalitions</li>
+				<li class="pl-4">Ethical stances on surveillance and authoritarian misuse (for infrastructure providers)</li>
+			</ul>
+		</div>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Base Score Calculation</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Compute the Base Score as:
+		</p>
+		<div class="methodology-formula mb-4 rounded-md bg-foreground/5 p-4 font-mono text-sm text-foreground/90">
+			Base Score = Σ (pillar_score × pillar_weight)
+		</div>
+		<p class="methodology-body mb-2 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<strong>Example (with default weights):</strong>
+		</p>
+		<div class="methodology-formula rounded-md bg-foreground/5 p-4 font-mono text-sm text-foreground/80">
+			Base = 0.35×Leadership + 0.35×Labor + 0.10×Policy + 0.10×ERG + 0.10×Advocacy
+		</div>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Ethical Ledger: Events and Evidence</h2>
+		<p class="methodology-body mb-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			BET maintains a public <strong>Ethical Ledger</strong> of documented events for each provider.
+		</p>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">What Qualifies as a Ledger Event</h3>
+		<p class="methodology-body mb-3 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			An event must meet at least one:
+		</p>
+		<ul class="methodology-list mb-6 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">Regulatory action, court filing, settlement, or official investigation</li>
+			<li class="pl-4">Multiple credible independent journalistic sources</li>
+			<li class="pl-4">Credible NGO reports</li>
+			<li class="pl-4">Verified company documents / statements</li>
+			<li class="pl-4">Consistent pattern corroborated across sources</li>
+		</ul>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Event Record Fields</h3>
+		<ul class="methodology-list mb-6 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">Provider name</li>
+			<li class="pl-4">Event start date</li>
+			<li class="pl-4">Category (leadership, labor, policy, advocacy, etc.)</li>
+			<li class="pl-4">Severity level</li>
+			<li class="pl-4">Description</li>
+			<li class="pl-4">Sources (links)</li>
+			<li class="pl-4">Status: ongoing / remediated</li>
+			<li class="pl-4">Remediation date (if remediated)</li>
+			<li class="pl-4">Notes on verification</li>
+		</ul>
+
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Severity Model (Penalty Points)</h3>
+		<p class="methodology-body mb-3 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			BET assigns a severity points value (0–100 scale points) per event:
+		</p>
+		<div class="methodology-table mb-4 overflow-x-auto">
+			<table class="w-full text-sm sm:text-base">
+				<thead>
+					<tr class="border-b border-foreground/20">
+						<th class="py-2 pr-4 text-left font-medium text-foreground">Severity</th>
+						<th class="py-2 text-right font-medium text-foreground">Points</th>
+					</tr>
+				</thead>
+				<tbody class="text-foreground/80">
+					<tr class="border-b border-foreground/10">
+						<td class="py-2 pr-4">Minor</td>
+						<td class="py-2 text-right">5</td>
+					</tr>
+					<tr class="border-b border-foreground/10">
+						<td class="py-2 pr-4">Moderate</td>
+						<td class="py-2 text-right">15</td>
+					</tr>
+					<tr class="border-b border-foreground/10">
+						<td class="py-2 pr-4">Severe</td>
+						<td class="py-2 text-right">25</td>
+					</tr>
+					<tr>
+						<td class="py-2 pr-4">Egregious</td>
+						<td class="py-2 text-right">40</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<strong>Severity is determined by:</strong> scale of harm, intent vs negligence, repetition/pattern, official findings vs allegations, and number of affected people.
+		</p>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Moral Inertia Module</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			This is the core differentiator: <strong>events do not decay until remediated.</strong>
+		</p>
+		
+		<div class="methodology-callout mb-6 rounded-md border-l-4 border-foreground/40 bg-foreground/5 p-4">
+			<p class="text-sm font-medium text-foreground sm:text-base">Key Principle</p>
+			<p class="mt-1 text-sm text-foreground/80 sm:text-base">
+				Time does not forgive unresolved harm.<br />
+				Penalties either grow (if unremediated) or decay (only after remediation).
+			</p>
+		</div>
+
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Parameters (Published Each Edition)</h3>
+		<ul class="methodology-list mb-6 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4"><strong>Grace window:</strong> 0.25–0.5 years (investigation window before growth begins)</li>
+			<li class="pl-4"><strong>Annual growth rate (g):</strong> typically 10–20% depending on category</li>
+			<li class="pl-4"><strong>Penalty cap multiplier:</strong> typically 3× (can vary by severity)</li>
+			<li class="pl-4"><strong>Post-remediation half-life:</strong> typically 10–12 years (slow forgiveness)</li>
+			<li class="pl-4"><strong>Mitigation factor (m):</strong> 0–1, applied at remediation (partial fixes)</li>
+		</ul>
+
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Penalty While Unresolved (Growth)</h3>
+		<p class="methodology-body mb-3 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			For an event <em>i</em>:
+		</p>
+		<ul class="methodology-list mb-3 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">severity points = P</li>
+			<li class="pl-4">time since start (years) = t</li>
+			<li class="pl-4">grace window = w</li>
+			<li class="pl-4">annual growth rate = g</li>
+			<li class="pl-4">cap multiplier = C</li>
+		</ul>
+		<p class="methodology-body mb-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			<strong>Unremediated penalty:</strong>
+		</p>
+		<div class="methodology-formula mb-4 space-y-2 rounded-md bg-foreground/5 p-4 font-mono text-sm text-foreground/80">
+			<p>If t ≤ w: penalty = P</p>
+			<p>If t > w: penalty = min( P × (1+g)<sup>(t−w)</sup>, P × C )</p>
+		</div>
+		<p class="methodology-body mb-6 text-sm italic leading-relaxed text-foreground/70 sm:text-base">
+			Meaning: the longer a company delays fixing the issue, the more it hurts.
+		</p>
+
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Penalty After Remediation (Decay)</h3>
+		<p class="methodology-body mb-3 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			If remediation occurs at time R, we compute the penalty at remediation, apply mitigation, then decay.
+		</p>
+		<ul class="methodology-list mb-3 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">half-life (years) = H</li>
+			<li class="pl-4">λ = ln(2)/H</li>
+			<li class="pl-4">time since remediation = u</li>
+		</ul>
+		<p class="methodology-body mb-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			<strong>Remediated penalty:</strong>
+		</p>
+		<div class="methodology-formula mb-4 space-y-2 rounded-md bg-foreground/5 p-4 font-mono text-sm text-foreground/80">
+			<p>penalty_at_fix = min( P × (1+g)<sup>(R−w)</sup>, P×C )</p>
+			<p>post_fix_base = penalty_at_fix × m</p>
+			<p>penalty_now = post_fix_base × e<sup>(−λu)</sup></p>
+		</div>
+		<p class="methodology-body text-sm italic leading-relaxed text-foreground/70 sm:text-base">
+			Meaning: penalties only fade after a verified fix—and even then, slowly.
+		</p>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Final Score Calculation</h2>
+		<div class="methodology-formula mb-4 rounded-md bg-foreground/5 p-4 font-mono text-sm text-foreground/90">
+			Final Score = Base Score − Σ (current penalties from ledger events)
+		</div>
+		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
+			Final score is bounded to [0, 100].
+		</p>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Remediation Standards</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			An event is marked <strong>remediated</strong> only if there is evidence of durable correction.
+		</p>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Acceptable Remediation Evidence</h3>
+		<ul class="methodology-list mb-6 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">Independent third-party audit</li>
+			<li class="pl-4">Regulator confirms compliance improvements</li>
+			<li class="pl-4">Policy change + enforcement + monitoring data</li>
+			<li class="pl-4">Worker restitution or structural reform (where applicable)</li>
+		</ul>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Non-Remediation Examples (Insufficient)</h3>
+		<ul class="methodology-list mb-4 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">PR statements without structural change</li>
+			<li class="pl-4">Leadership swap with no policy change</li>
+			<li class="pl-4">"We're investigating" without results</li>
+			<li class="pl-4">Internal memo without measurable outcomes</li>
+		</ul>
+		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
+			Partial remediation is allowed via mitigation factor <em>m</em> (e.g., m=0.7).
+		</p>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Anti-Gaming Rules</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			To prevent "CEO swap" or PR games:
+		</p>
+		<ul class="methodology-list space-y-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>No decay without remediation.</strong></li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Penalty growth continues until fix is verified.</strong></li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Remediation requires external evidence.</strong></li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Repeat offenses stack</strong> and can escalate severity.</li>
+			<li class="pl-4 border-l-2 border-foreground/20"><strong>Pattern multiplier:</strong> repeated similar offenses in a rolling window may amplify penalty.</li>
+		</ul>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Historical Moral Record</h2>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			BET publishes a separate <strong>permanent record</strong> for severe historical complicity events.
+		</p>
+		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			These entries:
+		</p>
+		<ul class="methodology-list space-y-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			<li class="pl-4 border-l-2 border-foreground/20">Do not affect present numeric scores</li>
+			<li class="pl-4 border-l-2 border-foreground/20">Do not decay</li>
+			<li class="pl-4 border-l-2 border-foreground/20">Exist to prevent historical erasure</li>
+			<li class="pl-4 border-l-2 border-foreground/20">May become scoring-relevant if denial, glorification, or repeat patterns emerge</li>
+		</ul>
+	</Section>
+
+	<Section divider>
+		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Transparency and Governance</h2>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Right of Reply</h3>
+		<p class="methodology-body mb-3 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Before publication, providers may submit:
+		</p>
+		<ul class="methodology-list mb-4 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">Corrections</li>
+			<li class="pl-4">Remediation documentation</li>
+			<li class="pl-4">Context and evidence</li>
+		</ul>
+		<p class="methodology-body mb-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			BET publishes accepted corrections and disputes with rationale for inclusion/exclusion.
+		</p>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Conflicts of Interest</h3>
+		<p class="methodology-body mb-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			BET discloses funding sources (if any), any relationships with rated companies, and advisory board affiliations.
+		</p>
+		
+		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Versioning</h3>
+		<p class="methodology-body text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Each release is versioned with: Methodology vX.Y, Ledger snapshot date, and weight changes explicitly documented.
+		</p>
+	</Section>
+
+	<Section>
 		<a 
 			href="/ethics" 
-			class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+			class="site-link inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
 		>
 			<ArrowLeft className="h-4 w-4" aria-hidden="true" />
 			Back to Ethics
