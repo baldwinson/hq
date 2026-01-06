@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { Navigation } from '@/components/Navigation';
 import SEO from '@/components/SEO.astro';
+import Analytics from '@/components/Analytics.astro';
 
 interface Props {
 	title?: string;
@@ -50,6 +51,8 @@ const currentPath = Astro.url.pathname;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+		
+		<Analytics />
 	</head>
 	<body class="min-h-screen bg-background font-sans antialiased">
 		<Navigation client:load currentPath={currentPath} />
