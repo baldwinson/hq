@@ -1,0 +1,12 @@
+---
+interface Props {
+	divider?: boolean;
+}
+
+const { divider = false } = Astro.props;
+---
+
+<section class="ethics-section pt-8 pb-6">
+	<slot />
+	{divider && <div class="site-divider mt-8"></div>}
+</section>

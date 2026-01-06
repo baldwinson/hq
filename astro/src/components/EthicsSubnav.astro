@@ -1,0 +1,117 @@
+---
+interface Props {
+	currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navItems = [
+	{ href: '/ethics', label: 'Overview' },
+	{ href: '/ethics/governance', label: 'Governance' },
+	{ href: '/ethics/methodology', label: 'Methodology' },
+	{ href: '/ethics/registry', label: 'Registry' },
+	{ href: '/ethics/scores', label: 'Scores' },
+];
+
+function isActive(href: string, current: string): boolean {
+	const normalizedCurrent = current.replace(/\/$/, '') || '/';
+	const normalizedHref = href.replace(/\/$/, '') || '/';
+	return normalizedCurrent === normalizedHref;
+}
+
+function getPageLabel(path: string): string {
+	const item = navItems.find(item => isActive(item.href, path));
+	return item?.label ?? 'Ethics';
+}
+---
+
+<!-- Desktop/Tablet: Sidebar navigation (sticky handled by parent .ethics-sidebar) -->
+<nav 
+	aria-label="Ethics section navigation" 
+	class="ethics-subnav-desktop hidden md:block"
+>
+	<p class="mb-4 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground/50">
+		Ethics
+	</p>
+	<ul class="space-y-1">
+		{navItems.map((item) => (
+			<li>
+				<a
+					href={item.href}
+					aria-current={isActive(item.href, currentPath) ? 'page' : undefined}
+					class:list={[
+						'ethics-subnav-link block py-1.5 text-sm transition-colors',
+						isActive(item.href, currentPath)
+							? 'ethics-subnav-link-active font-medium text-foreground'
+							: 'text-muted-foreground hover:text-foreground'
+					]}
+				>
+					{item.label}
+				</a>
+			</li>
+		))}
+	</ul>
+</nav>
+
+<!-- Mobile: Section selector dropdown -->
+<div class="ethics-subnav-mobile md:hidden">
+	<label for="ethics-section-select" class="sr-only">
+		Ethics section
+	</label>
+	<select 
+		id="ethics-section-select" 
+		name="ethics-section-select"
+		class="ethics-section-select w-full rounded-md border border-foreground/20 bg-background px-3 py-2 text-sm text-foreground focus:border-foreground/40 focus:outline-none focus:ring-1 focus:ring-foreground/20"
+	>
+		{navItems.map((item) => (
+			<option 
+				value={item.href} 
+				selected={isActive(item.href, currentPath)}
+			>
+				{item.label}
+			</option>
+		))}
+	</select>
+</div>
+
+<script>
+	const select = document.getElementById('ethics-section-select') as HTMLSelectElement;
+	select?.addEventListener('change', (e) => {
+		const target = e.target as HTMLSelectElement;
+		if (target.value) {
+			window.location.href = target.value;
+		}
+	});
+</script>
+
+<style>
+	.ethics-subnav-link-active {
+		position: relative;
+	}
+
+	.ethics-subnav-link-active::before {
+		content: '';
+		position: absolute;
+		left: -0.75rem;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 2px;
+		height: 1em;
+		background-color: var(--foreground);
+		opacity: 0.6;
+	}
+
+	.ethics-subnav-link:focus-visible {
+		outline: 2px solid color-mix(in oklab, var(--ring) 70%, transparent);
+		outline-offset: 2px;
+		border-radius: 2px;
+	}
+
+	.ethics-section-select {
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 0.75rem center;
+		padding-right: 2.5rem;
+	}
+</style>

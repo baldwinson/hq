@@ -1,35 +1,20 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Section from '../../components/Section.astro';
-import { ArrowLeft } from 'lucide-react';
+import EthicsLayout from '../../layouts/EthicsLayout.astro';
+import EthicsSection from '../../components/EthicsSection.astro';
 ---
 
-<Layout 
+<EthicsLayout 
 	title="BET Index Methodology — Baldwinson Ethical Technologies"
 	description="Research-based ranking methodology for technology infrastructure providers. Measures moral inclusion and corporate integrity using present-day policies and an institutional memory model that does not forgive unresolved harm."
 >
-	<section class="hero-section site-hero site-padding">
-		<div class="site-hero-inner">
-			<p class="mb-4 site-eyebrow">
-				Ethics
-			</p>
-			<h1 class="hero-primary text-[1.75rem] leading-[1.2] tracking-[-0.01em] text-foreground sm:text-[2.125rem] sm:leading-[1.15] lg:text-[2.75rem] lg:leading-[1.15]">
-				BET Index Methodology
-			</h1>
-			
-			<p class="hero-secondary mt-[1em] text-[1rem] leading-[1.5] text-foreground/70 sm:text-[1.125rem] lg:text-[1.25rem]">
-				A research-based ranking of technology infrastructure providers, designed to measure moral inclusion and corporate integrity.
-			</p>
-		</div>
-	</section>
 
-	<Section divider>
+	<EthicsSection divider>
 		<p class="methodology-body text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The <strong>Baldwinson Ethical Technologies (BET) Index</strong> evaluates providers using two principles: <em>(1) present-day policies and conduct</em> and <em>(2) an "institutional memory" model that does not forgive unresolved harm.</em>
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Scope</h2>
 		
 		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">What We Rank</h3>
@@ -44,9 +29,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="methodology-body text-sm leading-relaxed text-foreground/80 sm:text-base">
 			Consumer ecosystem clouds (e.g., iCloud) are not directly comparable to IaaS/PaaS providers. These may be covered in a separate BET Consumer Cloud Index.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Philosophy</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			Most "inclusion" indices measure policy checkboxes and forget history on schedule. BET is built on two premises:
@@ -60,9 +45,9 @@ import { ArrowLeft } from 'lucide-react';
 				<span class="text-foreground/70">Offenses do not "fade" simply because time passes or leadership changes.</span>
 			</li>
 		</ul>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Outputs</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			For each provider, BET publishes:
@@ -74,9 +59,9 @@ import { ArrowLeft } from 'lucide-react';
 			<li class="pl-4 border-l-2 border-foreground/20"><strong>Final Score</strong> (0–100) and rank</li>
 			<li class="pl-4 border-l-2 border-foreground/20"><strong>Historical Moral Record</strong> (Non-Scoring, Permanent) for major historical complicity events</li>
 		</ul>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Pillars and Weights</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			BET uses five pillars. Weights can vary by edition; the recommended default is:
@@ -116,9 +101,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			<strong>Rationale:</strong> Leadership and labor reflect what cannot be faked. Policies and ERGs matter, but are secondary.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Pillar Definitions and Scoring</h2>
 		<p class="methodology-body mb-8 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			Each pillar is scored 0–100 before Moral Inertia adjustments.
@@ -226,9 +211,9 @@ import { ArrowLeft } from 'lucide-react';
 				<li class="pl-4">Ethical stances on surveillance and authoritarian misuse (for infrastructure providers)</li>
 			</ul>
 		</div>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Base Score Calculation</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			Compute the Base Score as:
@@ -242,9 +227,9 @@ import { ArrowLeft } from 'lucide-react';
 		<div class="methodology-formula rounded-md bg-foreground/5 p-4 font-mono text-sm text-foreground/80">
 			Base = 0.35×Leadership + 0.35×Labor + 0.10×Policy + 0.10×ERG + 0.10×Advocacy
 		</div>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Ethical Ledger: Events and Evidence</h2>
 		<p class="methodology-body mb-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			BET maintains a public <strong>Ethical Ledger</strong> of documented events for each provider.
@@ -310,9 +295,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			<strong>Severity is determined by:</strong> scale of harm, intent vs negligence, repetition/pattern, official findings vs allegations, and number of affected people.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Moral Inertia Module</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			This is the core differentiator: <strong>events do not decay until remediated.</strong>
@@ -377,9 +362,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="methodology-body text-sm italic leading-relaxed text-foreground/70 sm:text-base">
 			Meaning: penalties only fade after a verified fix—and even then, slowly.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Final Score Calculation</h2>
 		<div class="methodology-formula mb-4 rounded-md bg-foreground/5 p-4 font-mono text-sm text-foreground/90">
 			Final Score = Base Score − Σ (current penalties from ledger events)
@@ -387,9 +372,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			Final score is bounded to [0, 100].
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Remediation Standards</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			An event is marked <strong>remediated</strong> only if there is evidence of durable correction.
@@ -413,9 +398,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="methodology-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			Partial remediation is allowed via mitigation factor <em>m</em> (e.g., m=0.7).
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Anti-Gaming Rules</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			To prevent "CEO swap" or PR games:
@@ -427,9 +412,9 @@ import { ArrowLeft } from 'lucide-react';
 			<li class="pl-4 border-l-2 border-foreground/20"><strong>Repeat offenses stack</strong> and can escalate severity.</li>
 			<li class="pl-4 border-l-2 border-foreground/20"><strong>Pattern multiplier:</strong> repeated similar offenses in a rolling window may amplify penalty.</li>
 		</ul>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Historical Moral Record</h2>
 		<p class="methodology-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			BET publishes a separate <strong>permanent record</strong> for severe historical complicity events.
@@ -443,9 +428,9 @@ import { ArrowLeft } from 'lucide-react';
 			<li class="pl-4 border-l-2 border-foreground/20">Exist to prevent historical erasure</li>
 			<li class="pl-4 border-l-2 border-foreground/20">May become scoring-relevant if denial, glorification, or repeat patterns emerge</li>
 		</ul>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="methodology-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Transparency and Governance</h2>
 		
 		<h3 class="methodology-subheading mb-3 text-base font-medium text-foreground sm:text-lg">Right of Reply</h3>
@@ -470,15 +455,5 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="methodology-body text-sm leading-relaxed text-foreground/80 sm:text-base">
 			Each release is versioned with: Methodology vX.Y, Ledger snapshot date, and weight changes explicitly documented.
 		</p>
-	</Section>
-
-	<Section>
-		<a 
-			href="/ethics" 
-			class="site-link inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-		>
-			<ArrowLeft className="h-4 w-4" aria-hidden="true" />
-			Back to Ethics
-		</a>
-	</Section>
-</Layout>
+	</EthicsSection>
+</EthicsLayout>

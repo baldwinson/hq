@@ -1,29 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Section from '../components/Section.astro';
+import EthicsLayout from '../layouts/EthicsLayout.astro';
+import EthicsSection from '../components/EthicsSection.astro';
 import { ArrowRight } from 'lucide-react';
 ---
 
-<Layout 
+<EthicsLayout 
 	title="Ethics — Baldwinson Ethical Technologies"
 	description="Independent evaluation of long-term ethical performance in technology. Non-gameable assessment of institutional behavior based on documented evidence, not stated intentions."
 >
-	<section class="hero-section site-hero site-padding">
-		<div class="site-hero-inner">
-			<p class="mb-4 site-eyebrow">
-				Ethics
-			</p>
-			<h1 class="hero-primary text-[1.75rem] leading-[1.2] tracking-[-0.01em] text-foreground sm:text-[2.125rem] sm:leading-[1.15] lg:text-[2.75rem] lg:leading-[1.15]">
-				Baldwinson Ethical Technologies
-			</h1>
-			
-			<p class="hero-secondary mt-[1em] text-[1rem] leading-[1.5] text-foreground/70 sm:text-[1.125rem] lg:text-[1.25rem]">
-				Independent evaluation of long-term ethical performance in technology infrastructure.
-			</p>
-		</div>
-	</section>
+	<header class="mb-10">
+		<h1 class="text-[1.5rem] font-light leading-[1.2] tracking-[-0.01em] text-foreground sm:text-[1.875rem] lg:text-[2.25rem]">
+			Baldwinson Ethical Technologies (BET)
+		</h1>
+		<p class="mt-4 text-base font-medium leading-relaxed text-foreground/80 sm:text-lg">
+			An ethical accountability system for evaluating corporate conduct in technology.
+		</p>
+		<p class="mt-4 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			Baldwinson Ethical Technologies (BET) defines how corporate behavior is evaluated, documented, and scored within the BET Index. This section explains the framework's methodology, oversight mechanisms, evidence registry, and scoring process.
+		</p>
+	</header>
 
-	<Section>
+	<EthicsSection>
 		<h2 class="mb-6 text-xl font-medium tracking-tight text-foreground sm:text-2xl">
 			Why this exists
 		</h2>
@@ -47,9 +44,9 @@ import { ArrowRight } from 'lucide-react';
 				Baldwinson Ethical Technologies exists to provide a durable, evidence-based evaluation of technology infrastructure providers—one that reflects long-term behavior, not short-term compliance. The goal is not to persuade teams to care about ethics, but to make ethical consequences visible, comparable, and difficult to ignore at the point of decision.
 			</p>
 		</div>
-	</Section>
+	</EthicsSection>
 
-	<Section>
+	<EthicsSection>
 		<p class="mb-6 site-eyebrow">
 			First Publication — Q1 2026
 		</p>
@@ -77,9 +74,9 @@ import { ArrowRight } from 'lucide-react';
 			</button>
 		</form>
 		<p class="mt-4 text-xs text-foreground/50" data-waitlist-message></p>
-	</Section>
+	</EthicsSection>
 
-	<Section>
+	<EthicsSection>
 		<p class="mb-6 site-eyebrow">
 			Charter
 		</p>
@@ -91,9 +88,9 @@ import { ArrowRight } from 'lucide-react';
 				The project exists to provide technology decision-makers with a transparent, non-gameable assessment of institutional behavior over time.
 			</p>
 		</div>
-	</Section>
+	</EthicsSection>
 
-	<Section>
+	<EthicsSection>
 		<p class="mb-6 site-eyebrow">
 			Why a new approach is necessary
 		</p>
@@ -111,9 +108,9 @@ import { ArrowRight } from 'lucide-react';
 				Executive incentive cycles—typically 2–4 years—structurally discourage decisions with ethical payoffs beyond that horizon.
 			</p>
 		</div>
-	</Section>
+	</EthicsSection>
 
-	<Section>
+	<EthicsSection>
 		<p class="mb-8 site-eyebrow">
 			Governing principles
 		</p>
@@ -163,9 +160,9 @@ import { ArrowRight } from 'lucide-react';
 				</p>
 			</div>
 		</div>
-	</Section>
+	</EthicsSection>
 
-	<Section>
+	<EthicsSection>
 		<p class="mb-6 site-eyebrow">
 			Methodology overview
 		</p>
@@ -187,7 +184,7 @@ import { ArrowRight } from 'lucide-react';
 			View full methodology
 			<ArrowRight className="h-4 w-4" aria-hidden="true" />
 		</a>
-	</Section>
+	</EthicsSection>
 
 	<script>
 		const form = document.querySelector('[data-waitlist-form]') as HTMLFormElement;
@@ -221,7 +218,7 @@ import { ArrowRight } from 'lucide-react';
 		});
 	</script>
 
-	<Section>
+	<EthicsSection>
 		<p class="mb-6 site-eyebrow">
 			Registry, scoring, and certification
 		</p>
@@ -240,9 +237,9 @@ import { ArrowRight } from 'lucide-react';
 			View registry
 			<ArrowRight className="h-4 w-4" aria-hidden="true" />
 		</a>
-	</Section>
+	</EthicsSection>
 
-	<Section>
+	<EthicsSection>
 		<p class="mb-6 site-eyebrow">
 			Governance and independence
 		</p>
@@ -264,5 +261,5 @@ import { ArrowRight } from 'lucide-react';
 			View governance structure
 			<ArrowRight className="h-4 w-4" aria-hidden="true" />
 		</a>
-	</Section>
-</Layout>
+	</EthicsSection>
+</EthicsLayout>

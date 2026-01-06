@@ -1,38 +1,15 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Section from '../../components/Section.astro';
-import { ArrowLeft } from 'lucide-react';
+import EthicsLayout from '../../layouts/EthicsLayout.astro';
+import EthicsSection from '../../components/EthicsSection.astro';
 ---
 
-<Layout 
+<EthicsLayout 
 	title="Registry — Baldwinson Ethical Technologies"
 	description="Self-attested organizational commitments to ethical technology practices. Informational registry for stated commitments from technology organizations."
 >
-	<section class="hero-section site-hero site-padding">
-		<div class="site-hero-inner">
-			<p class="mb-4 site-eyebrow">
-				Ethics
-			</p>
-			<h1 class="hero-primary text-[1.75rem] leading-[1.2] tracking-[-0.01em] text-foreground sm:text-[2.125rem] sm:leading-[1.15] lg:text-[2.75rem] lg:leading-[1.15]">
-				Registry
-			</h1>
-			
-			<p class="hero-secondary mt-[1em] text-[1rem] leading-[1.5] text-foreground/70 sm:text-[1.125rem] lg:text-[1.25rem]">
-				Self-attested organizational commitments.
-			</p>
-		</div>
-	</section>
-
-	<Section>
+	<EthicsSection>
 		<p class="text-sm text-muted-foreground/60 sm:text-base">
 			Registry is not yet open for submissions.
 		</p>
-		<a 
-			href="/ethics" 
-			class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-		>
-			<ArrowLeft className="h-4 w-4" aria-hidden="true" />
-			Back to Ethics
-		</a>
-	</Section>
-</Layout>
+	</EthicsSection>
+</EthicsLayout>

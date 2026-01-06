@@ -1,0 +1,52 @@
+---
+interface Props {
+	currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navItems = [
+	{ href: '/ethics', label: 'Ethics' },
+	{ href: '/ethics/governance', label: 'Governance' },
+	{ href: '/ethics/methodology', label: 'Methodology' },
+	{ href: '/ethics/registry', label: 'Registry' },
+	{ href: '/ethics/scores', label: 'Scores' },
+];
+
+function isActive(href: string, current: string): boolean {
+	const normalizedCurrent = current.replace(/\/$/, '') || '/';
+	const normalizedHref = href.replace(/\/$/, '') || '/';
+	return normalizedCurrent === normalizedHref;
+}
+
+function getPageLabel(path: string): string {
+	const item = navItems.find(item => isActive(item.href, path));
+	return item?.label ?? 'Ethics';
+}
+
+const isLandingPage = isActive('/ethics', currentPath);
+const currentLabel = getPageLabel(currentPath);
+---
+
+{!isLandingPage && (
+	<nav aria-label="Breadcrumb" class="ethics-breadcrumb mb-6">
+		<ol class="flex items-center gap-2 text-sm text-muted-foreground">
+			<li>
+				<a 
+					href="/ethics" 
+					class="transition-colors hover:text-foreground"
+				>
+					Ethics
+				</a>
+			</li>
+			<li aria-hidden="true" class="text-muted-foreground/40">
+				→
+			</li>
+			<li>
+				<span aria-current="page" class="text-foreground">
+					{currentLabel}
+				</span>
+			</li>
+		</ol>
+	</nav>
+)}

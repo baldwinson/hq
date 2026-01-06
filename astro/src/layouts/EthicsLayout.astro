@@ -1,0 +1,191 @@
+---
+import '../styles/global.css';
+import { Navigation } from '@/components/Navigation';
+import SEO from '@/components/SEO.astro';
+import Analytics from '@/components/Analytics.astro';
+import EthicsSubnav from '@/components/EthicsSubnav.astro';
+import EthicsBreadcrumb from '@/components/EthicsBreadcrumb.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	ogType?: 'website' | 'article';
+	publishedTime?: string;
+	modifiedTime?: string;
+	author?: string;
+	noindex?: boolean;
+}
+
+const { 
+	title = "Baldwinson", 
+	description = "Building durable systems at the intersection of technology, ethics, and governance.",
+	ogImage,
+	ogType = 'website',
+	publishedTime,
+	modifiedTime,
+	author,
+	noindex = false,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<SEO 
+			title={title}
+			description={description}
+			ogImage={ogImage}
+			ogType={ogType}
+			publishedTime={publishedTime}
+			modifiedTime={modifiedTime}
+			author={author}
+			noindex={noindex}
+		/>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+		
+		<Analytics />
+	</head>
+	<body class="min-h-screen bg-background font-sans antialiased">
+		<Navigation client:load currentPath={currentPath} />
+		<main class="pt-16">
+			<slot name="hero" />
+			
+			<div class="ethics-layout site-padding">
+				<div class="ethics-layout-container">
+					<!-- Mobile subnav (top of content) -->
+					<div class="ethics-mobile-nav mb-6 md:hidden">
+						<EthicsSubnav currentPath={currentPath} />
+					</div>
+					
+					<!-- Desktop/Tablet two-column layout -->
+					<div class="ethics-columns">
+						<!-- Left column: subnav -->
+						<aside class="ethics-sidebar hidden md:block">
+							<EthicsSubnav currentPath={currentPath} />
+						</aside>
+						
+						<!-- Right column: content -->
+						<div class="ethics-content">
+							<EthicsBreadcrumb currentPath={currentPath} />
+							<slot />
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="border-t border-border/20 site-padding py-12">
+			<div class="site-container flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+				<p class="text-xs text-muted-foreground/50">
+					© {new Date().getFullYear()} Baldwinson
+				</p>
+				<nav class="flex gap-4">
+					<a href="/privacy" class="text-xs text-muted-foreground/50 transition-colors hover:text-muted-foreground">
+						Privacy
+					</a>
+				</nav>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	/* ============================================
+	   TYPOGRAPHY STACK
+	   
+	   Primary: Inter (everything)
+	   Hero: Inter Display (weight 300, +tracking)
+	   Subheads: Inter 400-500
+	   Body: Inter 400, line-height 1.5-1.6
+	   Nav: Inter 400, +0.02em tracking
+	   ============================================ */
+	
+	.hero-section {
+		font-family: 'Inter', system-ui, sans-serif;
+	}
+	
+	.hero-primary {
+		font-family: 'Inter', system-ui, sans-serif;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		font-optical-sizing: auto;
+	}
+	
+	.hero-secondary {
+		font-family: 'Inter', system-ui, sans-serif;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+	}
+	
+	/* ============================================ */
+	
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+	
+	body {
+		margin: 0;
+		min-height: 100vh;
+	}
+</style>
+
+<style>
+	.ethics-layout {
+		padding-top: 3rem; /* Match site-header pt-12 */
+		padding-bottom: 3rem;
+	}
+
+	.ethics-layout-container {
+		max-width: 56rem; /* Wider than site-container to accommodate sidebar */
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.ethics-columns {
+		display: flex;
+		gap: 3rem;
+		align-items: flex-start; /* Prevents sidebar from stretching to content height */
+	}
+
+	.ethics-sidebar {
+		flex-shrink: 0;
+		width: 10rem;
+		position: sticky;
+		top: 5rem; /* 4rem header + 1rem spacing */
+		max-height: calc(100vh - 6rem);
+		overflow-y: auto;
+	}
+
+	.ethics-content {
+		flex: 1;
+		min-width: 0;
+		max-width: 42rem; /* Match site-container width */
+	}
+
+	@media (max-width: 767px) {
+		.ethics-columns {
+			display: block;
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1023px) {
+		.ethics-sidebar {
+			width: 9rem;
+		}
+		
+		.ethics-columns {
+			gap: 2rem;
+		}
+	}
+</style>

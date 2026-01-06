@@ -1,35 +1,20 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Section from '../../components/Section.astro';
-import { ArrowLeft } from 'lucide-react';
+import EthicsLayout from '../../layouts/EthicsLayout.astro';
+import EthicsSection from '../../components/EthicsSection.astro';
 ---
 
-<Layout 
+<EthicsLayout 
 	title="Governance & Editorial Independence — Baldwinson Ethical Technologies"
 	description="Principles, policies, and structural safeguards governing the BET Index. Editorial independence, conflict-of-interest rules, and transparency commitments."
 >
-	<section class="hero-section site-hero site-padding">
-		<div class="site-hero-inner">
-			<p class="mb-4 site-eyebrow">
-				Ethics
-			</p>
-			<h1 class="hero-primary text-[1.75rem] leading-[1.2] tracking-[-0.01em] text-foreground sm:text-[2.125rem] sm:leading-[1.15] lg:text-[2.75rem] lg:leading-[1.15]">
-				Governance & Editorial Independence
-			</h1>
-			
-			<p class="hero-secondary mt-[1em] text-[1rem] leading-[1.5] text-foreground/70 sm:text-[1.125rem] lg:text-[1.25rem]">
-				Principles, policies, and structural safeguards that govern the BET Index.
-			</p>
-		</div>
-	</section>
 
-	<Section divider>
+	<EthicsSection divider>
 		<p class="governance-body text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The Baldwinson Ethical Technologies (BET) Index is designed to evaluate corporate behavior in areas that are often subject to influence, pressure, or reputational risk. For this reason, <strong>governance</strong>—how decisions are made, constrained, and disclosed—is treated as a first-class component of the project.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Editorial Independence</h2>
 		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The BET Index operates as an <strong>independent research initiative</strong>.
@@ -51,9 +36,9 @@ import { ArrowLeft } from 'lucide-react';
 				The integrity of the index depends on the ability to publish findings regardless of commercial or reputational consequences.
 			</li>
 		</ul>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Conflicts of Interest</h2>
 		<p class="governance-body mb-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The BET Index maintains a <strong>strict conflict-of-interest posture</strong>.
@@ -92,9 +77,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="governance-body text-sm leading-relaxed text-foreground/80 sm:text-base">
 			Any material personal or financial interests that could reasonably be perceived as influencing the work will be disclosed on this page.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Authorship & Positionality</h2>
 		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The BET Index was developed by Curtis Baldwinson, a software engineer and researcher.
@@ -118,9 +103,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="governance-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			Scores reflect documented evidence and defined parameters, not personal endorsement or opposition.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Right of Reply & Corrections</h2>
 		<p class="governance-body mb-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The BET Index recognizes that ethical evaluation benefits from factual accuracy and good-faith engagement.
@@ -154,9 +139,9 @@ import { ArrowLeft } from 'lucide-react';
 				The existence of a right of reply does not guarantee a change in score.
 			</li>
 		</ul>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Methodology Governance</h2>
 		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The BET Index methodology is <strong>versioned and publicly documented</strong>.
@@ -175,9 +160,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="governance-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			This approach ensures that results are reproducible and that changes over time are attributable to defined methodological evolution rather than ad hoc judgment.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Historical Moral Record</h2>
 		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			In addition to numerical scoring, the BET Index maintains a <strong>Historical Moral Record</strong> for certain providers.
@@ -196,9 +181,9 @@ import { ArrowLeft } from 'lucide-react';
 				Denial, minimization, or repetition of similar patterns may trigger renewed scoring relevance.
 			</li>
 		</ul>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Transparency & Auditability</h2>
 		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			The BET Index is designed to be <strong>auditable</strong>.
@@ -217,9 +202,9 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="governance-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			Transparency is treated as a safeguard, not a marketing feature.
 		</p>
-	</Section>
+	</EthicsSection>
 
-	<Section divider>
+	<EthicsSection divider>
 		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Future Governance</h2>
 		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
 			As the BET Index evolves, additional governance mechanisms may be introduced, including:
@@ -232,15 +217,5 @@ import { ArrowLeft } from 'lucide-react';
 		<p class="governance-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			Any such changes will be disclosed on this page.
 		</p>
-	</Section>
-
-	<Section>
-		<a 
-			href="/ethics" 
-			class="site-link inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-		>
-			<ArrowLeft className="h-4 w-4" aria-hidden="true" />
-			Back to Ethics
-		</a>
-	</Section>
-</Layout>
+	</EthicsSection>
+</EthicsLayout>
