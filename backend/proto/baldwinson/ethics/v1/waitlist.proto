@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package baldwinson.ethics.v1;
+
+option go_package = "github.com/baldwinson/hq/backend/gen/baldwinson/ethics/v1;ethicsv1";
+
+service WaitlistService {
+  // Subscribe adds an email to the waitlist for ethics publication notifications.
+  rpc Subscribe(SubscribeRequest) returns (SubscribeResponse);
+}
+
+message SubscribeRequest {
+  string email = 1;
+}
+
+message SubscribeResponse {
+  string message = 1;
+}
