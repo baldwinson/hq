@@ -14,6 +14,7 @@ const navItems = [
   { href: "/insights", label: "Insights" },
   { href: "/ethics", label: "Ethics" },
   { href: "/apps", label: "Apps" },
+  { href: "/brands", label: "Brands" },
 ];
 
 interface NavigationProps {
