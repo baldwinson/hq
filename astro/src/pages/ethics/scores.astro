@@ -93,11 +93,11 @@ const reportDate = report?.reportDate ?? 'Unknown';
 								{provider.name}
 							</h3>
 							<p class="mt-1 text-xs text-foreground/40">
-								{reportDate} evaluation
+								Prepublication draft, methodology in progress
 							</p>
 						</div>
-						<div class="flex items-center gap-4">
-							<div class="text-right">
+						<div class="flex items-center gap-4 select-none">
+							<div class="text-right blur-sm">
 								<div class="text-2xl font-medium tabular-nums text-foreground">
 									{provider.weightedScore.toFixed(1)}
 								</div>
@@ -105,7 +105,7 @@ const reportDate = report?.reportDate ?? 'Unknown';
 									{getTier(provider.weightedScore)}
 								</div>
 							</div>
-							<div class="h-12 w-24 overflow-hidden rounded bg-foreground/10">
+							<div class="h-12 w-24 overflow-hidden rounded bg-foreground/10 blur-sm">
 								<div 
 									class={`h-full ${getScoreBarColor(provider.weightedScore)}`}
 									style={`width: ${provider.weightedScore}%`}
