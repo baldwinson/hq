@@ -1,6 +1,8 @@
 ---
 import EthicsLayout from '../../layouts/EthicsLayout.astro';
 import EthicsSection from '../../components/EthicsSection.astro';
+import Caption from '../../components/Caption.astro';
+import Footnote from '../../components/Footnote.astro';
 import { 
 	loadLatestScoreReport, 
 	getTier, 
@@ -92,9 +94,9 @@ const reportDate = report?.reportDate ?? 'Unknown';
 							<h3 class="text-lg font-medium text-foreground sm:text-xl">
 								{provider.name}
 							</h3>
-							<p class="mt-1 text-xs text-foreground/40">
+							<Caption class="mt-1">
 								Prepublication draft, methodology in progress
-							</p>
+							</Caption>
 						</div>
 						<div class="flex items-center gap-4 select-none">
 							<div class="text-right blur-sm">
@@ -142,8 +144,8 @@ const reportDate = report?.reportDate ?? 'Unknown';
 	</EthicsSection>
 
 	<EthicsSection>
-		<p class="text-xs text-foreground/40">
+		<Footnote>
 			These evaluations are preliminary and subject to revision as methodology review continues. Scores represent current assessment based on available documented evidence.
-		</p>
+		</Footnote>
 	</EthicsSection>
 </EthicsLayout>

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import EyebrowHeading from '../components/EyebrowHeading.astro';
 import Section from '../components/Section.astro';
+import Footnote from '../components/Footnote.astro';
 
 interface Publication {
 	title: string;
@@ -49,35 +50,35 @@ const formatDate = (dateStr: string) => {
 		</p>
 		<div class="space-y-8">
 			<div>
-				<h3 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+				<span class="mb-2 block text-base font-medium text-foreground sm:text-lg">
 					Institutional ethics and accountability
-				</h3>
+				</span>
 				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
 					Examination of ethical frameworks, indexes, licenses, and governance systems — including critiques of where they fail in practice.
 				</p>
 			</div>
 			
 			<div>
-				<h3 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+				<span class="mb-2 block text-base font-medium text-foreground sm:text-lg">
 					Policy, regulation, and economic consequence
-				</h3>
+				</span>
 				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
 					Analysis of tariffs, government agencies, and regulatory structures, with attention to downstream effects on businesses and individuals.
 				</p>
 			</div>
 			
 			<div>
-				<h3 class="mb-2 text-base font-medium text-foreground sm:text-lg">
+				<span class="mb-2 block text-base font-medium text-foreground sm:text-lg">
 					Engineering judgment at scale
-				</h3>
+				</span>
 				<p class="text-sm leading-relaxed text-foreground/70 sm:text-base">
 					Writing on technical decisions, system design, and tradeoffs where correctness, usability, and trust materially affect outcomes.
 				</p>
 			</div>
 		</div>
-		<p class="mt-8 text-xs text-foreground/40">
+		<Footnote class="mt-8">
 			These areas serve as mental models, not filters or categories.
-		</p>
+		</Footnote>
 	</Section>
 
 	<Section divider>
@@ -105,9 +106,9 @@ const formatDate = (dateStr: string) => {
 				))}
 			</div>
 		) : (
-			<p class="text-sm text-foreground/50 sm:text-base">
+			<Footnote>
 				Publications coming soon.
-			</p>
+			</Footnote>
 		)}
 	</Section>
 

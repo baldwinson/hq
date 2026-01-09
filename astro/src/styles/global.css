@@ -42,6 +42,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-label: var(--label);
+  --color-footnote: var(--footnote);
 }
 
 :root {
@@ -77,10 +79,12 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --label: #6a747e;
+  --footnote: #6a747e;
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
+  --background: #020618;
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
   --card-foreground: oklch(0.984 0.003 247.858);
@@ -111,6 +115,8 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --label: oklch(0.66 0.06 240);
+  --footnote: oklch(0.67 0.05 238);
 }
 
 @layer base {
@@ -144,7 +150,7 @@
     @apply px-6 sm:px-8 lg:px-12;
   }
   .site-eyebrow {
-    @apply text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground/60;
+    @apply text-xs font-medium uppercase tracking-[0.15em] text-label;
   }
   .site-section {
     @apply py-12;
