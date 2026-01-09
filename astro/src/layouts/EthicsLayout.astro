@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { Navigation } from '@/components/Navigation';
 import SEO from '@/components/SEO.astro';
+import Favicons from '@/components/Favicons.astro';
 import Analytics from '@vercel/analytics/astro';
 import EthicsSubnav from '@/components/EthicsSubnav.astro';
 import EthicsBreadcrumb from '@/components/EthicsBreadcrumb.astro';
@@ -36,7 +37,7 @@ const currentPath = Astro.url.pathname;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<Favicons />
 		<meta name="generator" content={Astro.generator} />
 		
 		<SEO 
