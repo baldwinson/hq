@@ -2,6 +2,7 @@
 import EthicsLayout from '../../layouts/EthicsLayout.astro';
 import EthicsSection from '../../components/EthicsSection.astro';
 import Footnote from '../../components/Footnote.astro';
+import ObfuscatedEmail from '../../components/ObfuscatedEmail.astro';
 ---
 
 <EthicsLayout 
@@ -203,6 +204,46 @@ import Footnote from '../../components/Footnote.astro';
 		</ul>
 		<p class="governance-body text-sm leading-relaxed text-foreground/70 sm:text-base">
 			Transparency is treated as a safeguard, not a marketing feature.
+		</p>
+	</EthicsSection>
+
+	<EthicsSection divider>
+		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Accessibility Standard</h2>
+		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			For materials published within the Ethics section of the Baldwinson website—including governance documents, methodological explanations, registries, and evaluative scores—Baldwinson applies a heightened accessibility standard as a matter of governance.
+		</p>
+		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Such materials are designed and reviewed to meet or exceed Web Content Accessibility Guidelines (WCAG) Level AAA text contrast requirements, with the express purpose of preventing visual obfuscation, selective legibility, or perceptual minimization of ethical, legal, or evaluative content.
+		</p>
+		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			This standard functions as a constraint on Ethics-related publications and is intended to ensure that readers, regardless of visual ability, encounter these materials with consistent clarity and semantic prominence.
+		</p>
+		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			This requirement is specific to the Ethics section of the Baldwinson website. Other Baldwinson-affiliated projects—particularly independent commercial, marketing, or retail endeavors—may employ stylistic, artistic, or thematic design choices that prioritize expressive or brand considerations and may not adhere to WCAG Level AAA contrast thresholds.
+		</p>
+		<p class="governance-body text-sm leading-relaxed text-foreground/70 sm:text-base">
+			Accessibility conformance within the Ethics section is treated as an ongoing obligation and is evaluated in connection with material changes to ensure continued alignment with this standard over time.
+		</p>
+	</EthicsSection>
+
+	<EthicsSection divider>
+		<h2 class="governance-heading mb-6 text-lg font-semibold text-foreground sm:text-xl">Corrections, Evidence, and Submissions</h2>
+		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			The BET Index is intended to be accurate, evidence-based, and accountable. Errors, omissions, or outdated information may occur.
+		</p>
+		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Individuals, organizations, or authorized representatives may submit factual corrections or additional evidence relevant to published content by contacting: <ObfuscatedEmail user="curtis" domain="baldwinson.com" class="text-foreground/80" />
+		</p>
+		<p class="governance-body mb-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+			Submissions should be limited to:
+		</p>
+		<ul class="governance-list mb-4 space-y-1 text-sm leading-relaxed text-foreground/70 sm:text-base">
+			<li class="pl-4">factual inaccuracies,</li>
+			<li class="pl-4">missing or updated evidence,</li>
+			<li class="pl-4">material context directly relevant to published evaluations.</li>
+		</ul>
+		<p class="governance-body text-sm leading-relaxed text-foreground/70 sm:text-base">
+			The BET Index does not guarantee revisions or responses to all submissions. Where corrections or updates are warranted, changes will be documented in the public record in accordance with the published methodology and governance procedures.
 		</p>
 	</EthicsSection>
 
