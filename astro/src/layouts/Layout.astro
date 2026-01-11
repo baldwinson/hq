@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { Navigation } from '@/components/Navigation';
+import Navigation from '@/components/Navigation.astro';
 import SEO from '@/components/SEO.astro';
 import Favicons from '@/components/Favicons.astro';
 import Analytics from '@vercel/analytics/astro';
@@ -69,7 +69,7 @@ const currentPath = Astro.url.pathname;
 		<Analytics />
 	</head>
 	<body class="min-h-screen bg-background font-sans antialiased">
-		<Navigation client:load currentPath={currentPath} />
+		<Navigation currentPath={currentPath} />
 		<main class="pt-16">
 			<slot />
 		</main>

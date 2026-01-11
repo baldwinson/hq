@@ -1,0 +1,269 @@
+---
+import { Menu, X } from '@lucide/astro';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+const navItems = [
+  { href: "/", label: "HQ" },
+  { href: "/work", label: "Work" },
+  { href: "/insights", label: "Insights" },
+  { href: "/ethics", label: "Ethics" },
+  { href: "/apps", label: "Apps" },
+  { href: "/brands", label: "Brands" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <nav class="nav-container mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
+    <a
+      href="/"
+      class="flex items-center text-lg font-light tracking-tight text-foreground transition-colors hover:text-foreground/80"
+      aria-label="Baldwinson - Home"
+    >
+      BALDWINSON
+    </a>
+
+    <div class="hidden md:flex md:flex-1 md:justify-center">
+      <ul class="flex items-center space-x-1">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={currentPath === item.href ? "page" : undefined}
+              class:list={[
+                "relative px-4 py-2 text-sm font-normal tracking-[0.02em] transition-colors",
+                "after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-px after:origin-center after:content-[''] after:transition-transform after:duration-300",
+                currentPath === item.href
+                  ? "text-foreground after:bg-foreground/50 after:scale-x-100"
+                  : "text-muted-foreground hover:text-foreground after:bg-foreground/30 after:scale-x-0 hover:after:scale-x-100"
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="hidden md:block md:w-[140px]"></div>
+
+    <!-- Mobile: details/summary for no-JS support, enhanced with JS -->
+    <details class="nav-details md:hidden" data-nav-details>
+      <summary
+        class="nav-summary inline-flex items-center justify-center size-9 rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
+        aria-label="Toggle navigation menu"
+      >
+        <Menu class="nav-icon-open h-5 w-5" aria-hidden="true" />
+        <X class="nav-icon-close h-5 w-5" aria-hidden="true" />
+      </summary>
+
+      <!-- Backdrop -->
+      <div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
+
+      <!-- Drawer -->
+      <div class="nav-drawer" data-nav-menu>
+        <div class="flex flex-col">
+          <!-- Header row - matches main header height and padding -->
+          <div class="flex h-16 items-center justify-between px-6 sm:px-8">
+            <span class="text-lg font-light tracking-tight text-foreground">
+              BALDWINSON
+            </span>
+            <!-- Spacer to balance layout (summary X is positioned here via CSS) -->
+            <div class="size-9"></div>
+          </div>
+          
+          <!-- Nav content -->
+          <nav class="px-6 sm:px-8 pt-2" aria-label="Main navigation">
+            <ul class="flex flex-col space-y-1">
+              {navItems.map((item, index) => (
+                <li>
+                  <a
+                    href={item.href}
+                    aria-current={currentPath === item.href ? "page" : undefined}
+                    class:list={[
+                      "block px-3 py-3 text-base font-normal tracking-[0.02em] transition-colors rounded-md",
+                      currentPath === item.href
+                        ? "bg-accent text-accent-foreground"
+                        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                    ]}
+                    data-nav-link={index === 0 ? "first" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </details>
+  </nav>
+</header>
+
+<style is:global>
+  /* Summary marker removal */
+  .nav-summary::-webkit-details-marker { display: none; }
+  .nav-summary { list-style: none; }
+
+  /* Icon toggle */
+  .nav-icon-close { display: none; }
+  .nav-details[open] .nav-icon-open { display: none; }
+  .nav-details[open] .nav-icon-close { display: flex; }
+
+  /* Position summary as close button when open */
+  .nav-details[open] .nav-summary {
+    position: fixed;
+    top: calc((4rem - 2.25rem) / 2);
+    right: 1.5rem;
+    z-index: 101;
+  }
+
+  @media (min-width: 640px) {
+    .nav-details[open] .nav-summary {
+      right: 2rem;
+    }
+  }
+
+  /* Backdrop */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease;
+  }
+
+  .nav-details[open] .nav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-details.closing .nav-backdrop {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Drawer */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    border-left: none;
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 300ms ease;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) {
+    .nav-drawer {
+      max-width: 350px;
+      border-left: 1px solid var(--border);
+    }
+  }
+
+  .dark .nav-drawer {
+    background: #020618;
+  }
+
+  .nav-details[open] .nav-drawer {
+    transform: translateX(0);
+  }
+
+  .nav-details.closing .nav-drawer {
+    transform: translateX(100%);
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-backdrop,
+    .nav-drawer {
+      transition: none;
+    }
+  }
+
+  
+  /* Ensure fixed positioning escapes parent stacking context */
+  .nav-container { position: static; }
+</style>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  function initNav() {
+    const details = document.querySelector('[data-nav-details]') as HTMLDetailsElement | null;
+    const backdrop = document.querySelector('[data-nav-backdrop]') as HTMLElement | null;
+    const menu = document.querySelector('[data-nav-menu]') as HTMLElement | null;
+    const firstLink = document.querySelector('[data-nav-link="first"]') as HTMLAnchorElement | null;
+
+    if (!details || !backdrop || !menu) return;
+    if ((details as any).__navBound) return;
+    (details as any).__navBound = true;
+
+    const summary = details.querySelector('summary') as HTMLElement;
+
+    function close() {
+      details.classList.add('closing');
+      document.body.style.overflow = '';
+      
+      const onTransitionEnd = () => {
+        details.classList.remove('closing');
+        details.open = false;
+        summary.focus();
+      };
+
+      menu.addEventListener('transitionend', onTransitionEnd, { once: true });
+      
+      // Fallback if transition doesn't fire
+      setTimeout(onTransitionEnd, 350);
+    }
+
+    function onOpen() {
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => firstLink?.focus());
+    }
+
+    // Intercept summary click to animate close
+    summary.addEventListener('click', (e) => {
+      if (details.open && !details.classList.contains('closing')) {
+        e.preventDefault();
+        close();
+      }
+    });
+
+    details.addEventListener('toggle', () => {
+      if (details.open) onOpen();
+      else document.body.style.overflow = '';
+    });
+
+    backdrop.addEventListener('click', close);
+
+    menu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && details.open) close();
+    });
+
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+      if (e.matches && details.open) close();
+    });
+  }
+
+  initNav();
+  document.addEventListener('astro:after-swap', () => {
+    document.documentElement.classList.add('js');
+    initNav();
+  });
+</script>

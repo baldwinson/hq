@@ -1,7 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Section from '../../../components/Section.astro';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from '@lucide/astro';
 
 export function getStaticPaths() {
 	return [
@@ -40,7 +40,7 @@ const companyName = company.charAt(0).toUpperCase() + company.slice(1).replace(/
 			href="/ethics/evaluations" 
 			class="site-link mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
 		>
-			<ArrowLeft className="h-4 w-4" aria-hidden="true" />
+			<ArrowLeft class="h-4 w-4" aria-hidden="true" />
 			Back to Evaluations
 		</a>
 	</Section>
