@@ -14,6 +14,24 @@ export default defineConfig({
   integrations: [react(), sitemap()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: [
+        'tailwind-merge',
+        'clsx', 
+        'class-variance-authority',
+        '@radix-ui/react-slot',
+        '@radix-ui/react-dialog'
+      ]
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'ui-utils': ['tailwind-merge', 'clsx', 'class-variance-authority']
+          }
+        }
+      }
+    }
   }
 });
