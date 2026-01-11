@@ -49,6 +49,18 @@ const websiteSchema = {
 	}
 };
 
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": "Curtis Baldwinson",
+	"url": siteUrl,
+	"jobTitle": "Founder",
+	"affiliation": {
+		"@type": "Organization",
+		"name": "Baldwinson"
+	}
+};
+
 const breadcrumbItems = Astro.url.pathname
 	.split('/')
 	.filter(Boolean)
@@ -123,7 +135,6 @@ const pageSchema = ogType === 'article' ? {
 <meta name="twitter:image" content={fullOgImage} />
 
 <!-- Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify([organizationSchema, websiteSchema, personSchema])} />
 {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
