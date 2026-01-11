@@ -12,7 +12,12 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [sitemap()],
 
+  build: {
+    // Inline all stylesheets to eliminate render-blocking CSS requests
+    inlineStylesheets: 'always',
+  },
+
   vite: {
     plugins: [tailwindcss()],
-  }
+  },
 });
