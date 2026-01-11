@@ -31,6 +31,7 @@ export function Navigation({ currentPath = "/" }: NavigationProps) {
         <a
           href="/"
           className="flex items-center text-lg font-light tracking-tight text-foreground transition-colors hover:text-foreground/80"
+          aria-label="Baldwinson - Home"
         >
           BALDWINSON
         </a>
@@ -42,6 +43,7 @@ export function Navigation({ currentPath = "/" }: NavigationProps) {
               <li key={item.href}>
                 <a
                   href={item.href}
+                  aria-current={currentPath === item.href ? "page" : undefined}
                   className={`relative px-4 py-2 text-sm font-normal tracking-[0.02em] transition-colors after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-px after:origin-center after:content-[''] after:transition-transform after:duration-300 ${
                     currentPath === item.href
                       ? "text-foreground after:bg-foreground/50 after:scale-x-100"
@@ -71,21 +73,25 @@ export function Navigation({ currentPath = "/" }: NavigationProps) {
               <span className="text-lg font-light tracking-tight text-foreground">
                 BALDWINSON
               </span>
-              <nav className="flex flex-col space-y-1">
-                {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`px-3 py-3 text-base font-normal tracking-[0.02em] transition-colors ${
-                      currentPath === item.href
-                        ? "bg-accent text-accent-foreground"
-                        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+              <nav className="flex flex-col space-y-1" aria-label="Main navigation">
+                <ul className="flex flex-col space-y-1">
+                  {navItems.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        aria-current={currentPath === item.href ? "page" : undefined}
+                        className={`block px-3 py-3 text-base font-normal tracking-[0.02em] transition-colors ${
+                          currentPath === item.href
+                            ? "bg-accent text-accent-foreground"
+                            : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                        }`}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </nav>
             </div>
           </SheetContent>
