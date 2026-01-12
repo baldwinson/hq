@@ -13,7 +13,16 @@ interface Publication {
 	href?: string;
 }
 
-const publications: Publication[] = [];
+const publications: Publication[] = [
+	{
+		title: 'Tariff Volatility and Asymmetric Risk in Small Importing Businesses',
+		date: '2026-01-11',
+		readTime: '12 min',
+		excerpt: 'A case study examining how tariff volatility translates into asymmetric cash-flow risk for small importing businesses, with attention to logistics constraints, delegated administrative authority, and irreversible capital exposure.',
+		area: 'Policy, regulation, and economic consequence',
+		href: '/insights/tariff-volatility-small-importers',
+	},
+];
 
 const formatDate = (dateStr: string) => {
 	const date = new Date(dateStr);

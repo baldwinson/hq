@@ -1,0 +1,197 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Footnote from '../../components/Footnote.astro';
+import { ChevronLeft } from '@lucide/astro';
+
+const publishedDate = '2026-01-11';
+const title = 'Tariff Volatility and Asymmetric Risk in Small Importing Businesses';
+const description = 'A case study examining how tariff volatility translates into asymmetric cash-flow risk for small importing businesses, with attention to logistics constraints, delegated administrative authority, and irreversible capital exposure.';
+const author = 'Curtis Baldwinson';
+const canonicalUrl = 'https://baldwinson.com/insights/tariff-volatility-small-importers';
+
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"headline": title,
+	"description": description,
+	"author": {
+		"@type": "Person",
+		"name": author,
+		"url": "https://www.baldwinson.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Baldwinson",
+		"url": "https://www.baldwinson.com"
+	},
+	"datePublished": publishedDate,
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": canonicalUrl
+	},
+	"articleSection": "Policy, regulation, and economic consequence",
+	"keywords": ["tariffs", "import duties", "small business", "trade policy", "cash flow", "customs", "logistics", "capital constraints", "asymmetric risk"]
+};
+---
+
+<Layout 
+	title={`${title} — Baldwinson`}
+	description={description}
+	ogType="article"
+	publishedTime={publishedDate}
+	author={author}
+	canonicalUrl={canonicalUrl}
+>
+	<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+	<article itemscope itemtype="https://schema.org/Article">
+		<header class="site-padding pt-16 pb-8">
+			<div class="site-container max-w-2xl">
+				<a 
+					href="/insights" 
+					class="mb-6 inline-flex items-center gap-1.5 text-sm text-foreground/50 transition-colors hover:text-foreground/70"
+				>
+					<ChevronLeft size={16} strokeWidth={1.5} />
+					Insights
+				</a>
+				<p class="mb-3 text-sm text-foreground/50">
+					<time datetime={publishedDate}>January 11, 2026</time>
+					<span class="mx-2">·</span>
+					<span>12 min read</span>
+				</p>
+				<h1 itemprop="headline" class="text-2xl font-normal leading-tight tracking-[-0.01em] text-foreground sm:text-3xl lg:text-[2rem]">
+					{title}
+				</h1>
+				<meta itemprop="author" content={author} />
+				<meta itemprop="datePublished" content={publishedDate} />
+				<div class="site-divider mt-8"></div>
+			</div>
+		</header>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					This article documents the cash flow impact of tariffs on a small, family-owned importing business. It does not argue trade theory or geopolitical strategy. Instead, it records how tariff timing interacts with real-world logistics, delegated administrative authority, and capital constraints—and how those interactions can produce losses that are both disproportionate and unrecoverable.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The account is a case study intended to inform future discussions of trade policy by providing insight into how such policies affect small businesses.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">A Narrow Timing Miss</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A single shipment departed just outside the cutoff required to qualify under an applicable trade treaty.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					As a result of missing the cutoff, the container was assessed tariffs materially higher than anticipated. For a small, family-operated importer, the tariff alone represented a substantial upfront capital outlay on the order of several months of warehouse rent.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					In the United States, tariffs are paid by the importer of record, not by a country. A licensed customs broker acts as an agent, preparing the customs entry and remitting the importer's funds to U.S. Customs and Border Protection. The importer remains responsible for the full duty, which must be paid or secured before the goods can be released from customs custody.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					In this case, the assessed tariffs exceeded $19,000 US dollars; enough to cover several months of warehouse rent, or a full inventory refresh.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">Exploring a Mitigation Path</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Faced with the unexpected tariff burden, we explored an alternative: redirecting the container to Canada, where downstream operations could continue without bearing the full tariff exposure. This decision required a swift assessment of logistical routes and associated constraints.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The option was re-exporting the container by sea to Vancouver. That option was eliminated immediately, as the container itself had already been sold and was no longer available for onward maritime shipment.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The remaining alternative was overland transport to Canada. This was possible only through a specialized logistics provider capable of bonded trucking, which allowed the goods to transit from the Port of Los Angeles to Vancouver without triggering U.S. tariff liability.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					However, inland trucking imposed its own constraints. The container's weight exceeded overland regulatory limits, requiring it to be split into two containers to comply with trucking regulations. This reconfiguration introduced additional handling and service fees charged by the bonded logistics provider. While the shipment did not require splitting for its original maritime leg, overland transport operated under materially different weight thresholds.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">Delegated Clearance and Irreversibility</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					In parallel, customs clearance was being handled by a third-party broker operating under delegated authority. During this period, we explicitly communicated that we were not prepared to proceed with tariff clearance and were still evaluating whether sufficient cash was available given the recent increases.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Despite this, the container was released for customs.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Once clearance was granted, the shipment transitioned to a new administrative state. At that point, bonded trucking to Canada was no longer an option. The logistics provider prepared to execute the bonded move could no longer generate the required paperwork for a shipment that had already cleared.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The decision point was irreversible. All alternative paths were foreclosed.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">The Cost of a Failed Mitigation</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Although the mitigation attempt was aborted, it still incurred substantial costs, including approximately $4,954 in demurrage, devanning, and related handling fees, and $1,700 in delivery charges.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The container's contents were effectively unloaded, split, reloaded, and delivered twice, requiring two labor shifts. These costs were entirely additive, incurred without any corresponding business benefit.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Ultimately, the tariffs were paid in full, and the additional logistics and labor costs were absorbed.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">Scale and Asymmetry</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The tariff represented the highest single cost. The additional non-recoverable logistics fees and duplicated labor amplified the damage by consuming capital that would otherwise fund inventory, rent, or payroll.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					In total, the combined impact was comparable to the cost of a full inventory refresh for a small operator.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					For large firms, costs of this nature can often be amortized across financing structures, inventory cycles, or scale efficiencies. For small, family-operated businesses, the same costs function as direct capital extraction. They do not compress margins; they remove optionality.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">On Timing and Policy Reversibility</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					There is ongoing attention to the legal framework governing these tariffs, and a judicial ruling may alter the rules prospectively. Regardless of outcome, the capital already extracted during this period remains unrecoverable.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					For small operators, policy reversibility does not equate to economic reversibility. Timing is not a detail; it is the outcome.
+				</p>
+			</div>
+		</Section>
+
+		<Section>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">Closing</h2>
+				
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Beyond the immediate financial impact, unstable tariff regimes carry longer-term structural consequences. Small import businesses often compete not on scale but on customization, service quality, and local presence. When policy volatility extracts large amounts of capital upfront, these businesses are disproportionately exposed, while larger firms can absorb or amortize the same shocks. Over time, this dynamic risks hollowing out segments of the economy that provide localized service, attention to detail, and family-supported livelihoods.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Family-operated businesses frequently serve as community anchors, sustaining local knowledge, long-term relationships, and service standards that are not readily captured by conventional economic indicators. Policy frameworks that focus narrowly on aggregate outcomes risk overlooking these effects until they are irreversibly lost.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					This account exists to ensure that discussions of tariffs account not only for their macroeconomic intent, but for how they are actually experienced by businesses operating close to the margin.
+				</p>
+				<p class="mt-10 text-xs tracking-[0.02em] text-foreground/40">
+					By Curtis Baldwinson
+				</p>
+			</div>
+		</Section>
+	</article>
+</Layout>
