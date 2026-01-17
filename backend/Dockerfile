@@ -17,6 +17,6 @@ RUN apk add --no-cache ca-certificates tzdata
 
 COPY --from=builder /api /api
 
-EXPOSE 8080
+EXPOSE 8081
 
 CMD ["/api"]

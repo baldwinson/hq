@@ -44,13 +44,13 @@ docker compose up postgres -d
 go run ./cmd/api
 ```
 
-API runs on port `8080` by default.
+API runs on port `8081` by default.
 
 ### With Docker
 
 ```sh
 docker build -t baldwinson-api .
-docker run -p 8080:8080 -e DATABASE_URL="..." baldwinson-api
+docker run -p 8081:8081 -e DATABASE_URL="..." baldwinson-api
 ```
 
 ## Environment Variables
@@ -58,7 +58,7 @@ docker run -p 8080:8080 -e DATABASE_URL="..." baldwinson-api
 | Variable       | Description                    | Default |
 | :------------- | :----------------------------- | :------ |
 | `DATABASE_URL` | PostgreSQL connection string   | -       |
-| `PORT`         | Server port                    | `8080`  |
+| `PORT`         | Server port                    | `8081`  |
 
 ## Protobuf Generation
 
