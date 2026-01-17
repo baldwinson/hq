@@ -198,9 +198,12 @@ import { ArrowRight } from '@lucide/astro';
 			message.textContent = 'Submitting...';
 
 			try {
-				const response = await fetch('/api/waitlist', {
+				const response = await fetch('https://api.baldwinson.com/baldwinson.ethics.v1.WaitlistService/Subscribe', {
 					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
+					headers: { 
+						'Content-Type': 'application/json',
+						'Connect-Protocol-Version': '1'
+					},
 					body: JSON.stringify({ email })
 				});
 				
@@ -210,7 +213,7 @@ import { ArrowRight } from '@lucide/astro';
 					message.textContent = data.message || `Thank you. We'll notify ${email} when the first publication is available.`;
 					form.reset();
 				} else {
-					message.textContent = data.error || 'Something went wrong. Please try again.';
+					message.textContent = data.error?.message || 'Something went wrong. Please try again.';
 				}
 			} catch (error) {
 				message.textContent = 'Something went wrong. Please try again.';
