@@ -1,46 +1,52 @@
-# Astro Starter Kit: Basics
+# Baldwinson HQ - Frontend
+
+Astro-based frontend for Baldwinson HQ.
+
+## Tech Stack
+
+- [Astro](https://astro.build/) v5 - Static site generator with islands architecture
+- [TailwindCSS](https://tailwindcss.com/) v4 - Utility-first CSS
+- [Lucide](https://lucide.dev/) - Icon library
+- TypeScript
+- Deployed on [Vercel](https://vercel.com/)
+
+## Project Structure
+
+```
+src/
+├── assets/       # Static assets (images, etc.)
+├── components/   # Reusable Astro/React components
+├── layouts/      # Page layouts
+├── lib/          # Utility functions
+├── pages/        # File-based routing
+└── styles/       # Global styles
+```
+
+## Getting Started
 
 ```sh
-pnpm create astro@latest -- --template basics
+pnpm install
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Dev server runs at `http://localhost:4321`
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command          | Action                                      |
+| :--------------- | :------------------------------------------ |
+| `pnpm install`   | Install dependencies                        |
+| `pnpm dev`       | Start dev server at `localhost:4321`        |
+| `pnpm build`     | Build production site to `./dist/`          |
+| `pnpm preview`   | Preview production build locally            |
+| `pnpm astro ...` | Run Astro CLI commands                      |
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+## Environment Variables
+
+Copy `.env.example` to `.env` and configure:
+
+```sh
+cp .env.example .env
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See `.env.example` for available variables.
