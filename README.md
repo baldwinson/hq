@@ -43,7 +43,7 @@ docker compose up -d
 
 This starts:
 - **API** on port 8080
-- **PostgreSQL** on port 5433
+- **PostgreSQL** on port 5481
 
 ### Local Development
 

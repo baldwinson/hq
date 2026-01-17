@@ -1,0 +1,35 @@
+-- Database initialization script
+-- Run as superuser/admin to set up restricted API user
+
+-- Create the waitlist table (if not exists)
+CREATE TABLE IF NOT EXISTS waitlist (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    source VARCHAR(100),
+    ip_address INET,
+    user_agent TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Indexes for abuse detection queries
+CREATE INDEX IF NOT EXISTS idx_waitlist_ip_address ON waitlist(ip_address);
+CREATE INDEX IF NOT EXISTS idx_waitlist_created_at ON waitlist(created_at);
+
+-- Create restricted API user (write-only for waitlist)
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'baldwinson_api') THEN
+        CREATE ROLE baldwinson_api WITH LOGIN PASSWORD 'CHANGE_ME_IN_PRODUCTION';
+    END IF;
+END
+$$;
+
+-- Grant minimal permissions
+GRANT CONNECT ON DATABASE baldwinson TO baldwinson_api;
+GRANT USAGE ON SCHEMA public TO baldwinson_api;
+
+-- Write-only access to waitlist table (INSERT only, no SELECT/UPDATE/DELETE)
+GRANT INSERT ON TABLE waitlist TO baldwinson_api;
+
+-- Allow use of the sequence for SERIAL column
+GRANT USAGE, SELECT ON SEQUENCE waitlist_id_seq TO baldwinson_api;

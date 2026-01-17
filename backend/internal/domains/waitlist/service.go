@@ -3,6 +3,7 @@ package waitlist
 import (
 	"context"
 	"regexp"
+	"strings"
 
 	"connectrpc.com/connect"
 
@@ -30,7 +31,27 @@ func (s *Service) Subscribe(ctx context.Context, req *connect.Request[ethicsv1.S
 		return nil, connect.NewError(connect.CodeInvalidArgument, nil)
 	}
 
-	if err := s.repo.Subscribe(ctx, email); err != nil {
+	if len(email) > 255 {
+		return nil, connect.NewError(connect.CodeInvalidArgument, nil)
+	}
+
+	userAgent := req.Header().Get("User-Agent")
+	if len(userAgent) > 500 {
+		userAgent = userAgent[:500]
+	}
+
+	ipAddress := req.Header().Get("X-Forwarded-For")
+	if idx := strings.Index(ipAddress, ","); idx != -1 {
+		ipAddress = strings.TrimSpace(ipAddress[:idx])
+	}
+
+	params := SubscribeParams{
+		Email:     email,
+		IPAddress: ipAddress,
+		UserAgent: userAgent,
+	}
+
+	if err := s.repo.Subscribe(ctx, params); err != nil {
 		return nil, connect.NewError(connect.CodeInternal, err)
 	}
 
