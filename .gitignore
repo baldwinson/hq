@@ -13,3 +13,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# windsurf
+.windsurf/
+
+# docs
+/docs/
