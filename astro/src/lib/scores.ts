@@ -103,24 +103,24 @@ export function getTier(score: number): string {
 
 export function getTierColor(tier: string): string {
 	switch (tier) {
-		case "Strong": return "text-green-600 dark:text-green-400";
-		case "Moderate": return "text-yellow-600 dark:text-yellow-400";
-		case "Concerning": return "text-orange-600 dark:text-orange-400";
-		case "Poor": return "text-red-600 dark:text-red-400";
+		case "Strong": return "text-green-600";
+		case "Moderate": return "text-amber-500";
+		case "Concerning": return "text-orange-500";
+		case "Poor": return "text-red-500";
 		default: return "text-foreground/60";
 	}
 }
 
 export function getScoreBarColor(score: number): string {
-	if (score >= 80) return "bg-green-600 dark:bg-green-500";
-	if (score >= 65) return "bg-yellow-600 dark:bg-yellow-500";
-	if (score >= 50) return "bg-orange-600 dark:bg-orange-500";
-	return "bg-red-600 dark:bg-red-500";
+	if (score >= 80) return "bg-green-600";
+	if (score >= 65) return "bg-amber-500";
+	if (score >= 50) return "bg-orange-500";
+	return "bg-red-600";
 }
 
 export function getCategoryColor(score: number): string {
-	if (score >= 80) return "text-green-600 dark:text-green-400";
-	if (score >= 65) return "text-yellow-600 dark:text-yellow-400";
-	if (score >= 50) return "text-orange-600 dark:text-orange-400";
-	return "text-red-600 dark:text-red-400";
+	if (score >= 80) return "text-green-600";
+	if (score >= 65) return "text-amber-500";
+	if (score >= 50) return "text-orange-500";
+	return "text-red-500";
 }

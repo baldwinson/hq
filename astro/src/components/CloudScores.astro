@@ -70,18 +70,18 @@ function getScoreLabel(score: number): string {
   }
 
   .score-card {
-    border: 1px solid oklch(0 0 0 / 8%);
-    background: oklch(0 0 0 / 2%);
+    border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+    background: color-mix(in oklab, var(--foreground) 2%, transparent);
     transition: background 0.2s ease, border-color 0.2s ease;
   }
 
   .score-card:hover {
-    background: oklch(0 0 0 / 4%);
-    border-color: oklch(0 0 0 / 12%);
+    background: color-mix(in oklab, var(--foreground) 4%, transparent);
+    border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
   }
 
   .score-bar-track {
-    background: oklch(0 0 0 / 8%);
+    background: color-mix(in oklab, var(--foreground) 8%, transparent);
     height: 6px;
     border-radius: 3px;
     overflow: hidden;
@@ -184,7 +184,7 @@ function getScoreLabel(score: number): string {
         </div>
 
         <!-- Category Breakdown -->
-        <div class="category-grid mt-5 pt-4" style="border-top: 1px solid oklch(0 0 0 / 6%);">
+        <div class="category-grid mt-5 pt-4 border-t border-foreground/6">
           {categories.map(cat => {
             const value = row[cat.key as keyof ScoreRow] as number;
             return (
