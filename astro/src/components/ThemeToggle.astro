@@ -1,0 +1,76 @@
+---
+import { Sun, Moon } from '@lucide/astro';
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  aria-label="Toggle color theme"
+  title="Toggle color theme"
+  class="inline-flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+>
+  <Sun class="theme-icon-light h-5 w-5" aria-hidden="true" />
+  <Moon class="theme-icon-dark h-5 w-5" aria-hidden="true" />
+</button>
+
+<script>
+  type ThemeChoice = 'light' | 'dark';
+
+  const STORAGE_KEY = 'theme';
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function applyTheme(dark: boolean): void {
+    const root = document.documentElement;
+    root.classList.toggle('dark', dark);
+    root.style.colorScheme = dark ? 'dark' : 'light';
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+  }
+
+  function readStored(): ThemeChoice | null {
+    try {
+      const value = localStorage.getItem(STORAGE_KEY);
+      return value === 'dark' || value === 'light' ? value : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function writeStored(choice: ThemeChoice): void {
+    try {
+      localStorage.setItem(STORAGE_KEY, choice);
+    } catch {
+      // Storage may be unavailable (private mode, blocked); fail silently.
+    }
+  }
+
+  function bindToggle(button: HTMLButtonElement): void {
+    if ((button as HTMLButtonElement & { __themeBound?: boolean }).__themeBound) return;
+    (button as HTMLButtonElement & { __themeBound?: boolean }).__themeBound = true;
+    button.addEventListener('click', () => {
+      const nextDark = !document.documentElement.classList.contains('dark');
+      applyTheme(nextDark);
+      writeStored(nextDark ? 'dark' : 'light');
+    });
+  }
+
+  function initThemeToggles(): void {
+    document
+      .querySelectorAll<HTMLButtonElement>('[data-theme-toggle]')
+      .forEach(bindToggle);
+  }
+
+  // Sync to system changes when user has not made an explicit choice.
+  mql.addEventListener('change', (event) => {
+    if (readStored() === null) applyTheme(event.matches);
+  });
+
+  // Sync across tabs.
+  window.addEventListener('storage', (event) => {
+    if (event.key !== STORAGE_KEY) return;
+    const choice = event.newValue === 'dark' || event.newValue === 'light' ? event.newValue : null;
+    applyTheme(choice ? choice === 'dark' : mql.matches);
+  });
+
+  initThemeToggles();
+  document.addEventListener('astro:after-swap', initThemeToggles);
+</script>

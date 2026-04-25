@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navigation from '@/components/Navigation.astro';
 import SEO from '@/components/SEO.astro';
 import Favicons from '@/components/Favicons.astro';
+import ThemeScript from '@/components/ThemeScript.astro';
 import Analytics from '@vercel/analytics/astro';
 
 interface Props {
@@ -35,6 +36,7 @@ const currentPath = Astro.url.pathname;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<ThemeScript />
 		<Favicons />
 		<meta name="generator" content={Astro.generator} />
 		
