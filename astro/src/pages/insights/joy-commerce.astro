@@ -351,8 +351,8 @@ const articleSchema = {
 					This keeps the peace.
 				</p>
 				<p class="mt-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
-					With love, and may God bless you.<br />
-					May your life be filled with joy and bounty.
+					With love, and God bless you.<br />
+					May your life be filled with <span class="joy-mark"><span class="joy-word">joy</span><span class="joy-hearts" aria-hidden="true"><span class="joy-heart">♥</span><span class="joy-heart">♥</span><span class="joy-heart">♥</span><span class="joy-heart">♥</span><span class="joy-heart">♥</span></span></span> and bounty.
 				</p>
 				<p class="mt-10 text-xs tracking-[0.02em] text-foreground/40">
 					By Curtis Baldwinson
@@ -361,3 +361,93 @@ const articleSchema = {
 		</Section>
 	</article>
 </Layout>
+
+<style>
+	.joy-mark {
+		position: relative;
+		display: inline-block;
+	}
+
+	.joy-word {
+		background-image: linear-gradient(
+			90deg,
+			oklch(0.72 0.18 15 / 0.7),
+			oklch(0.78 0.16 60 / 0.7),
+			oklch(0.72 0.15 150 / 0.7),
+			oklch(0.72 0.15 230 / 0.7),
+			oklch(0.72 0.18 310 / 0.7)
+		);
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+		background-size: 100% 1.5px;
+		padding-bottom: 0.15em;
+	}
+
+	.joy-hearts {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.joy-heart {
+		position: absolute;
+		bottom: 0;
+		font-size: 0.8em;
+		line-height: 1;
+		opacity: 0;
+		will-change: transform, opacity;
+		animation: joy-float 5s ease-out infinite;
+	}
+
+	.joy-heart:nth-child(1) {
+		left: 10%;
+		color: oklch(0.72 0.18 15);
+		animation-delay: 0s;
+	}
+
+	.joy-heart:nth-child(2) {
+		left: 30%;
+		color: oklch(0.78 0.16 60);
+		animation-delay: 1s;
+	}
+
+	.joy-heart:nth-child(3) {
+		left: 50%;
+		color: oklch(0.72 0.15 150);
+		animation-delay: 2s;
+	}
+
+	.joy-heart:nth-child(4) {
+		left: 70%;
+		color: oklch(0.72 0.15 230);
+		animation-delay: 3s;
+	}
+
+	.joy-heart:nth-child(5) {
+		left: 90%;
+		color: oklch(0.72 0.18 310);
+		animation-delay: 4s;
+	}
+
+	@keyframes joy-float {
+		0% {
+			opacity: 0;
+			transform: translate(-50%, -12px) scale(0.4);
+		}
+		20% {
+			opacity: 1;
+			transform: translate(-50%, -18px) scale(1);
+		}
+		100% {
+			opacity: 0;
+			transform: translate(-50%, -32px) scale(0.6);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.joy-hearts {
+			display: none;
+		}
+	}
+</style>
