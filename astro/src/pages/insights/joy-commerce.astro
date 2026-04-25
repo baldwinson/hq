@@ -1,0 +1,363 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import { ChevronLeft } from '@lucide/astro';
+
+const publishedDate = '2026-04-24';
+const title = 'Joy Commerce';
+const description = 'On the standards that turn ordinary transactions into clean exchanges — payment up front, honest stock, exact inventory, transparent fulfillment, care for the Earth, and problems made as easy to solve as the purchase was to make.';
+const author = 'Curtis Baldwinson';
+const canonicalUrl = 'https://baldwinson.com/insights/joy-commerce';
+
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"headline": title,
+	"description": description,
+	"author": {
+		"@type": "Person",
+		"name": author,
+		"url": "https://www.baldwinson.com"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Baldwinson",
+		"url": "https://www.baldwinson.com"
+	},
+	"datePublished": publishedDate,
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": canonicalUrl
+	},
+	"articleSection": "Institutional ethics and accountability",
+	"keywords": ["commerce", "retail", "business ethics", "inventory", "customer experience", "small business", "sustainability", "packaging", "shipping", "fulfillment", "returns", "warranty", "feedback"]
+};
+---
+
+<Layout 
+	title={`${title} — Baldwinson`}
+	description={description}
+	ogType="article"
+	publishedTime={publishedDate}
+	author={author}
+	canonicalUrl={canonicalUrl}
+>
+	<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+	<article itemscope itemtype="https://schema.org/Article">
+		<header class="site-padding pt-16 pb-8">
+			<div class="site-container max-w-2xl">
+				<a 
+					href="/insights" 
+					class="mb-6 inline-flex items-center gap-1.5 text-sm text-foreground/50 transition-colors hover:text-foreground/70"
+				>
+					<ChevronLeft size={16} stroke-width={1.5} />
+					Insights
+				</a>
+				<p class="mb-3 text-sm text-foreground/50">
+					<time datetime={publishedDate}>April 24, 2026</time>
+					<span class="mx-2">·</span>
+					<span>6 min read</span>
+				</p>
+				<h1 itemprop="headline" class="text-2xl font-normal leading-tight tracking-[-0.01em] text-foreground sm:text-3xl lg:text-[2rem]">
+					{title}
+				</h1>
+				<p class="mt-4 text-base italic leading-relaxed text-foreground/70 sm:text-lg">
+					An introduction to Joy Commerce: a standard for clean, honest, transparent exchange.
+				</p>
+				<dl class="mt-8 grid grid-cols-[max-content_1fr] items-baseline gap-x-6 gap-y-3 text-sm leading-relaxed sm:text-base">
+					<dt class="site-eyebrow">Category</dt>
+					<dd class="text-foreground/80">Commerce</dd>
+					<dt class="site-eyebrow">Type</dt>
+					<dd class="text-foreground/80">Baldwinson Insight</dd>
+					<dt class="site-eyebrow">Status</dt>
+					<dd class="text-foreground/80">Published</dd>
+					<dt class="site-eyebrow">Principle</dt>
+					<dd class="text-foreground/80">Commerce should create joy through honest exchange, transparent fulfillment, responsible packaging, and simple problem resolution.</dd>
+				</dl>
+				<meta itemprop="author" content={author} />
+				<meta itemprop="datePublished" content={publishedDate} />
+				<div class="site-divider mt-8"></div>
+			</div>
+		</header>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Retail is not a futures market. The clean exchange begins with payment, real inventory, and exact records.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Commerce should produce j͟o͟y͟.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A customer enters a business with a need, a desire, or a hope. A business receives that customer with goods, labor, and attention. When the exchange is clear, both parties leave better than they arrived.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					That is the purpose of commerce.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					But joy in commerce does not happen by accident. It requires standards.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business that takes orders for goods it does not have creates anxiety. A business that releases goods without payment creates resentment. A business that guesses at inventory creates conflict between staff, customers, suppliers, and owners.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					These problems may look operational, but they are also moral.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Bad systems create bad feelings. Loose standards create avoidable disputes. Ambiguity turns ordinary transactions into stress.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					To achieve j͟o͟y͟. in commerce, retail businesses should observe standards:
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Take payment. Verify stock. Disclose fulfillment. Package transparently. Ship as promised. Protect the Earth. Ask for feedback. Resolve problems simply.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">The Joy Commerce Standard</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business practicing Joy Commerce should:
+				</p>
+				<ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-foreground/80 marker:text-foreground/40 sm:text-base">
+					<li>Take payment clearly.</li>
+					<li>Verify stock before representing goods as available.</li>
+					<li>Disclose backorders, preorders, supplier fulfillment, or special handling.</li>
+					<li>Package transparently.</li>
+					<li>Ship by the promised method.</li>
+					<li>Use responsible materials and protect the Earth.</li>
+					<li>Ask for feedback.</li>
+					<li>Make returns, warranties, cancellations, and unsubscribes simple.</li>
+					<li>Provide access to a human or a capable agent with real authority to solve problems.</li>
+				</ul>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">1. Take Payment Up Front</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business should take payment before releasing goods.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If goods are released without payment, the business must treat that release as a gift it can afford to give. Otherwise, the business has created a debt, a chase, and a future dispute.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A customer buying shelves should not leave with the product while everyone "figures out payment later." A bakery should not hand over a custom cake and hope the customer returns. A furniture store should not load a sofa into a truck before the transaction is complete.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Payment brings closure.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Closure brings peace.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">2. Verify Stock (Do Not Misrepresent What You Possess)</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Retail is not a futures market.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A retailer should not sell an item as immediately available unless it actually has that item in stock and available for release. Customers are not buying vague optimism. They are buying either goods, or a clearly explained plan to provide goods.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If an item is on backorder, say it is on backorder.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If it is a preorder, say it is a preorder.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If it will ship from a supplier, say it will ship from a supplier.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If it must be manufactured, imported, assembled, transferred, inspected, or scheduled for freight pickup before delivery, say so.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The problem is not every sale of future fulfillment. The problem is pretending future fulfillment is present inventory.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A hardware store should not sell a generator it does not have during a storm unless the customer is clearly told when and how it will be obtained. A warehouse should not sell roofing panels it cannot locate. An online shop should not advertise "in stock" when the item is still on a supplier's truck.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Selling what does not exist without explanation converts commerce into apology.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Honest disclosure turns waiting into consent.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">3. Disclose Fulfillment (Keep Exact Inventory)</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Inventory must be counted accurately.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Approximate stock creates false promises. False promises create anger. Anger destroys the joy of the exchange.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If the system says there are twelve units, there must be twelve units.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If two are damaged, they are not available inventory.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If one is being held for pickup, it is not available inventory.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If a product exists somewhere in the warehouse but no one can find it, it is not available commerce.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Exact inventory is not bureaucracy.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					It is respect.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">4. Package Transparently (Ship by the Method Promised)</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If a business sells a product for delivery, it should be able to ship that product by the agreed-upon method within the stated handling time.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Shipping should not be a mystery. The customer should know what carrier is being used, when the item will be packaged, when it will be handed to the carrier, and why that process takes the amount of time stated.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If you are a small business and an incoming order will take 3 days to pack it because of limited resources, simply admit it. The honesty is always much easier for the customer to understand.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If an item requires one business day to package because it must be wrapped, inspected, weighed, labeled, and staged for pickup, say so. If freight shipping takes longer because the item is oversized, palletized, or requires a scheduled carrier pickup, say so. If the product cannot ship until a container arrives, then it should not be sold as immediately available.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A customer should not have to wonder whether their order is sitting forgotten in a warehouse, waiting for stock that does not exist, or delayed by a carrier they were never told about.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Transparency turns waiting into trust.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Silence turns waiting into suspicion.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Shipping is part of the sale. A business that accepts payment for delivery has accepted responsibility not only for the goods, but for the path by which those goods reach the customer.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">5. Protect the Earth</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Commerce should not poison the world that makes commerce possible.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Packaging exists to protect goods, but it must not become a permanent burden on the Earth. A business should use the least harmful packaging that can responsibly protect the product.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Styrofoam should be banned.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					It is cheap because the true cost is pushed onto everyone else: the customer who must dispose of it, the city that must manage the waste, the oceans that receive what escapes, and the future that inherits what does not break down.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business should not treat the planet as an unpriced landfill.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If a product can be packed with paper, cardboard, molded pulp, reusable padding, or another safer material, it should be. The standard should be simple: protect the product without harming the world.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Joy in commerce cannot come from convenience that damages creation.
+				</p>
+				<p class="mt-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Protect the goods.
+				</p>
+				<p class="mt-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Protect the customer.
+				</p>
+				<p class="mt-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Protect the Earth.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">6. Ask for Feedback</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business should ask customers for feedback after the exchange is complete.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Some customers will answer. Many will not. That is acceptable. The act of asking still matters.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Feedback gives the customer a final opportunity to be heard. It gives the business a chance to detect confusion, disappointment, damage, delay, or delight. It also reminds the business that commerce does not end at the moment of payment. Commerce ends when the customer has received what was promised and feels respected by the exchange.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business that never asks for feedback is choosing not to know.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business that asks with humility can improve.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Feedback is not merely a marketing tool. It is a peacekeeping tool.
+				</p>
+			</div>
+		</Section>
+
+		<Section divider>
+			<div class="prose-container max-w-2xl">
+				<h2 class="mb-6 text-lg font-medium text-foreground sm:text-xl">7. Make Problems Easy to Solve</h2>
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business should make returns, warranty claims, cancellations, and unsubscribes as simple as the original purchase.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					If it takes one minute to buy, it should not take an hour to cancel. If a customer can place an order online, they should be able to start a return online. If a warranty exists, the path to invoke it should be clear, visible, and usable.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A business should provide a clear way to contact a human being.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A highly capable artificial intelligence agent may be useful if it has sufficient permission to solve real problems: issue refunds, replace damaged goods, cancel subscriptions, update shipping, document warranty claims, and escalate unusual cases. But artificial intelligence must not become a wall between the customer and justice.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A human fallback is mandatory.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					Live electronic chat is excellent when it solves problems quickly. It is not excellent when it traps the customer in loops, scripts, or artificial delay.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					A customer with a real problem should not have to beg for help from the business that accepted their money.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					The standard is simple: make it easy to buy, easy to resolve, and easy to leave.
+				</p>
+				<p class="mt-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					That is respect.
+				</p>
+			</div>
+		</Section>
+
+		<Section>
+			<div class="prose-container max-w-2xl">
+				<p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
+					This keeps the peace.
+				</p>
+				<p class="mt-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
+					With love, and may God bless you.<br />
+					May your life be filled with joy and bounty.
+				</p>
+				<p class="mt-10 text-xs tracking-[0.02em] text-foreground/40">
+					By Curtis Baldwinson
+				</p>
+			</div>
+		</Section>
+	</article>
+</Layout>

@@ -9,6 +9,7 @@ import Analytics from '@vercel/analytics/astro';
 interface Props {
 	title?: string;
 	description?: string;
+	canonicalUrl?: string;
 	ogImage?: string;
 	ogType?: 'website' | 'article';
 	publishedTime?: string;
@@ -20,6 +21,7 @@ interface Props {
 const { 
 	title = "Baldwinson", 
 	description = "Building durable systems at the intersection of technology, ethics, and governance.",
+	canonicalUrl,
 	ogImage,
 	ogType = 'website',
 	publishedTime,
@@ -43,6 +45,7 @@ const currentPath = Astro.url.pathname;
 		<SEO 
 			title={title}
 			description={description}
+			canonicalUrl={canonicalUrl}
 			ogImage={ogImage}
 			ogType={ogType}
 			publishedTime={publishedTime}
